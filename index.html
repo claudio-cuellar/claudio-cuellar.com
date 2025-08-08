@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animation classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-white font-sans">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 w-full bg-gray-900 bg-opacity-90 z-50 shadow-lg">
+        <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+            <h1 class="text-yellow-400 font-bold text-xl">MyPortfolio</h1>
+            <ul class="flex space-x-6">
+                <li><a href="#hero" class="hover:text-yellow-400 transition">Home</a></li>
+                <li><a href="#about" class="hover:text-yellow-400 transition">About</a></li>
+                <li><a href="#projects" class="hover:text-yellow-400 transition">Projects</a></li>
+                <li><a href="#skills" class="hover:text-yellow-400 transition">Skills</a></li>
+                <li><a href="#contact" class="hover:text-yellow-400 transition">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="hero" class="h-screen flex flex-col justify-center items-center text-center px-4">
+        <h2
+            class="text-5xl md:text-7xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-200 fade-in">
+            Hi, I'm Claudio</h2>
+        <p class="mt-4 text-lg text-gray-300 fade-in">Frontend & Backend Developer | Turning ideas into reality</p>
+        <a href="#projects"
+            class="mt-8 px-6 py-3 bg-yellow-400 text-gray-900 font-semibold rounded-full hover:bg-yellow-300 transition fade-in">View
+            My Work</a>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="h-screen flex flex-col md:flex-row items-center justify-center px-6">
+        <div class="md:w-1/2 fade-in">
+            <img src="https://via.placeholder.com/400" alt="Profile" class="rounded-2xl shadow-lg">
+        </div>
+        <div class="md:w-1/2 md:pl-10 mt-6 md:mt-0 fade-in">
+            <h3 class="text-3xl font-bold text-yellow-400 mb-4">About Me</h3>
+            <p class="text-gray-300">I’m a passionate developer who loves building creative, functional, and
+                user-friendly applications. With a background in full-stack development, I specialize in delivering
+                solutions that merge clean design with efficient code.</p>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="min-h-screen py-16 px-6">
+        <h3 class="text-3xl font-bold text-yellow-400 mb-12 text-center fade-in">Projects</h3>
+        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition fade-in">
+                <img src="https://via.placeholder.com/400x250" alt="Project 1">
+                <div class="p-4">
+                    <h4 class="font-bold text-xl">Project One</h4>
+                    <p class="text-gray-400">Short description of the project goes here.</p>
+                </div>
+            </div>
+            <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition fade-in">
+                <img src="https://via.placeholder.com/400x250" alt="Project 2">
+                <div class="p-4">
+                    <h4 class="font-bold text-xl">Project Two</h4>
+                    <p class="text-gray-400">Short description of the project goes here.</p>
+                </div>
+            </div>
+            <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition fade-in">
+                <img src="https://via.placeholder.com/400x250" alt="Project 3">
+                <div class="p-4">
+                    <h4 class="font-bold text-xl">Project Three</h4>
+                    <p class="text-gray-400">Short description of the project goes here.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="min-h-screen py-16 px-6 bg-gray-800">
+        <h3 class="text-3xl font-bold text-yellow-400 mb-12 text-center fade-in">Skills</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            <div class="text-center fade-in">
+                <span class="text-5xl">💻</span>
+                <p class="mt-2">JavaScript</p>
+            </div>
+            <div class="text-center fade-in">
+                <span class="text-5xl">⚛️</span>
+                <p class="mt-2">React</p>
+            </div>
+            <div class="text-center fade-in">
+                <span class="text-5xl">🎨</span>
+                <p class="mt-2">CSS</p>
+            </div>
+            <div class="text-center fade-in">
+                <span class="text-5xl">☁️</span>
+                <p class="mt-2">AWS</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="min-h-screen flex flex-col justify-center items-center px-6">
+        <h3 class="text-3xl font-bold text-yellow-400 mb-6 fade-in">Get In Touch</h3>
+        <form class="w-full max-w-md space-y-4 fade-in">
+            <input type="text" placeholder="Your Name"
+                class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:border-yellow-400 outline-none">
+            <input type="email" placeholder="Your Email"
+                class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:border-yellow-400 outline-none">
+            <textarea placeholder="Your Message" rows="4"
+                class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:border-yellow-400 outline-none"></textarea>
+            <button type="submit"
+                class="w-full bg-yellow-400 text-gray-900 font-semibold py-3 rounded hover:bg-yellow-300 transition">Send
+                Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4 text-center text-gray-500 text-sm bg-gray-900">
+        © 2025 Claudio Cuellar. All rights reserved.
+    </footer>
+
+    <!-- Fade-in animation script -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
