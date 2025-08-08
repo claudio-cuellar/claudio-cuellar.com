@@ -1,0 +1,29 @@
+{
+  "name": "claudio-cuellar.com",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node build.js",
+    "serve": "npx http-server dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/claudio252/claudio-cuellar.com.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/claudio252/claudio-cuellar.com/issues"
+  },
+  "homepage": "https://github.com/claudio252/claudio-cuellar.com#readme",
+  "description": "",
+  "devDependencies": {
+    "@babel/cli": "^7.28.0",
+    "@babel/core": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
+    "html-minifier": "^4.0.0",
+    "http-server": "^14.1.1"
+  }
+}
