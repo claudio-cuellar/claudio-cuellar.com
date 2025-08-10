@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 export default defineConfig({
   // Base public path when served in production
@@ -29,6 +30,21 @@ export default defineConfig({
       '@': resolve(__dirname, 'src'),
     },
   },
+
+  plugins: [
+    viteStaticCopy({
+      targets: [
+        {
+          src: 'src/i18n/*.json',
+          dest: 'assets'
+        }
+      ],
+      watch: {
+        // Enable watching in dev mode
+        reload: true // reload the page when files change
+      }
+    })
+  ],
   
   // Configure plugins
   plugins: [],
