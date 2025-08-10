@@ -93,10 +93,19 @@ class I18nManager {
     this.saveLanguage();
     this.applyTranslations();
     
-    // Update language selector
-    const selector = document.getElementById('language-selector');
-    if (selector) {
-      selector.value = lang;
+    // Update flag buttons active state
+    const flagButtons = document.querySelectorAll('.flag-button');
+    if (flagButtons.length > 0) {
+      flagButtons.forEach(btn => {
+        const buttonLang = btn.getAttribute('data-lang');
+        if (buttonLang === lang) {
+          btn.classList.remove('border', 'border-transparent');
+          btn.classList.add('border-2', 'border-yellow-400');
+        } else {
+          btn.classList.remove('border-2', 'border-yellow-400');
+          btn.classList.add('border', 'border-transparent');
+        }
+      });
     }
   }
 
@@ -160,38 +169,43 @@ class I18nManager {
    * Add language selector to the page
    */
   addLanguageSelector() {
-    // Create language selector container
+    // Create container
     const container = document.createElement('div');
-    container.className = 'language-selector-container fixed top-4 right-16 z-50';
+    container.className = 'language-selector-container fixed top-4 right-16 z-50 flex gap-2';
     
-    // Create select element
-    const select = document.createElement('select');
-    select.id = 'language-selector';
-    select.className = 'bg-gray-800 text-white border border-gray-700 rounded px-2 py-1';
-    select.value = this.currentLanguage;
+    // Flag mapping
+    const flagEmojis = {
+      'en': '🇺🇸',
+      'es': '🇪🇸'
+    };
     
-    // Add event listener
-    select.addEventListener('change', (e) => {
-      this.changeLanguage(e.target.value);
-    });
-    
-    // Add options for each supported language
+    // Create flag buttons
     this.supportedLanguages.forEach(lang => {
-      const option = document.createElement('option');
-      option.value = lang;
-      option.textContent = this.t(`languageSelector.${lang}`);
-      select.appendChild(option);
+      const button = document.createElement('button');
+      button.className = 'flag-button w-10 h-10 rounded-full flex items-center justify-center text-xl border';
+      button.setAttribute('data-lang', lang);
+      button.setAttribute('title', this.t(`languageSelector.${lang}`));
+      button.setAttribute('aria-label', this.t(`languageSelector.${lang}`));
+      
+      // Set active state for current language
+      if (lang === this.currentLanguage) {
+        button.classList.add('border-2', 'border-yellow-400');
+      } else {
+        button.classList.add('border-transparent');
+      }
+      
+      // Add flag emoji
+      button.textContent = flagEmojis[lang] || lang.toUpperCase();
+      
+      // Add event listener
+      button.addEventListener('click', () => {
+        this.changeLanguage(lang);
+      });
+      
+      container.appendChild(button);
     });
     
-    // Add label
-    const label = document.createElement('label');
-    label.htmlFor = 'language-selector';
-    label.className = 'text-white mr-2';
-    label.textContent = this.t('languageSelector.language') + ':';
-    
-    // Assemble and add to page
-    container.appendChild(label);
-    container.appendChild(select);
+    // Add to page
     document.body.appendChild(container);
   }
 }

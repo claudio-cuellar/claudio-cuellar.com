@@ -80,6 +80,22 @@
             }
         }
         
+        /* Flag button styles */
+        .flag-button {
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            background-color: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(4px);
+        }
+        
+        .flag-button:hover {
+            transform: scale(1.1);
+        }
+        
+        .flag-button:active {
+            transform: scale(0.95);
+        }
+        
         /* Small mobile devices */
         @media (max-width: 480px) {
             .nav-links {
@@ -99,8 +115,6 @@
             .language-selector-container {
                 right: 60px;
                 top: 4px;
-                transform: scale(0.85);
-                transform-origin: right top;
             }
         }
     </style>
