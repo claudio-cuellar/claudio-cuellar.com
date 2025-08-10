@@ -2,6 +2,9 @@
  * main.js - Main entry point for the application
  */
 
+// Import the i18n manager
+import i18n from './i18n/i18n.js';
+
 // Initialize the application
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize fade-in animations
