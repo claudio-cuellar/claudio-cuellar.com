@@ -1,0 +1,55 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, I'm Claudio",
+    "subtitle": "Frontend & Backend Developer | Turning ideas into reality",
+    "cta": "View My Work"
+  },
+  "about": {
+    "title": "About Me",
+    "description": "I'm a passionate developer who loves building creative, functional, and user-friendly applications. With a background in full-stack development, I specialize in delivering solutions that merge clean design with efficient code."
+  },
+  "projects": {
+    "title": "Projects",
+    "project1": {
+      "title": "Project One",
+      "description": "Short description of the project goes here."
+    },
+    "project2": {
+      "title": "Project Two",
+      "description": "Short description of the project goes here."
+    },
+    "project3": {
+      "title": "Project Three",
+      "description": "Short description of the project goes here."
+    }
+  },
+  "skills": {
+    "title": "Skills",
+    "skill1": "Angular",
+    "skill2": "React",
+    "skill3": "CSS",
+    "skill4": "AWS"
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "namePlaceholder": "Your Name",
+    "emailPlaceholder": "Your Email",
+    "messagePlaceholder": "Your Message",
+    "submitButton": "Send Message"
+  },
+  "footer": {
+    "copyright": "© 2025 Claudio Cuellar. All rights reserved."
+  },
+  "languageSelector": {
+    "language": "Language",
+    "en": "English",
+    "es": "Spanish"
+  }
+}

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html-element">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Portfolio</title>
+    <script src="/src/i18n/i18n.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Smooth scroll behavior */
@@ -33,11 +34,11 @@
         <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
             <h1 class="text-yellow-400 font-bold text-xl">MyPortfolio</h1>
             <ul class="flex space-x-6">
-                <li><a href="#hero" class="hover:text-yellow-400 transition">Home</a></li>
-                <li><a href="#about" class="hover:text-yellow-400 transition">About</a></li>
-                <li><a href="#projects" class="hover:text-yellow-400 transition">Projects</a></li>
-                <li><a href="#skills" class="hover:text-yellow-400 transition">Skills</a></li>
-                <li><a href="#contact" class="hover:text-yellow-400 transition">Contact</a></li>
+                <li><a href="#hero" class="hover:text-yellow-400 transition" data-i18n="nav.home">Home</a></li>
+                <li><a href="#about" class="hover:text-yellow-400 transition" data-i18n="nav.about">About</a></li>
+                <li><a href="#projects" class="hover:text-yellow-400 transition" data-i18n="nav.projects">Projects</a></li>
+                <li><a href="#skills" class="hover:text-yellow-400 transition" data-i18n="nav.skills">Skills</a></li>
+                <li><a href="#contact" class="hover:text-yellow-400 transition" data-i18n="nav.contact">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -45,11 +46,11 @@
     <!-- Hero -->
     <section id="hero" class="h-screen flex flex-col justify-center items-center text-center px-4">
         <h2
-            class="text-5xl md:text-7xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-200 fade-in">
+            class="text-5xl md:text-7xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-200 fade-in" data-i18n="hero.greeting">
             Hi, I'm Claudio</h2>
-        <p class="mt-4 text-lg text-gray-300 fade-in">Frontend & Backend Developer | Turning ideas into reality</p>
+        <p class="mt-4 text-lg text-gray-300 fade-in" data-i18n="hero.subtitle">Frontend & Backend Developer | Turning ideas into reality</p>
         <a href="#projects"
-            class="mt-8 px-6 py-3 bg-yellow-400 text-gray-900 font-semibold rounded-full hover:bg-yellow-300 transition fade-in">View
+            class="mt-8 px-6 py-3 bg-yellow-400 text-gray-900 font-semibold rounded-full hover:bg-yellow-300 transition fade-in" data-i18n="hero.cta">View
             My Work</a>
     </section>
 
@@ -59,8 +60,8 @@
             <img src="https://via.placeholder.com/400" alt="Profile" class="rounded-2xl shadow-lg">
         </div>
         <div class="md:w-1/2 md:pl-10 mt-6 md:mt-0 fade-in">
-            <h3 class="text-3xl font-bold text-yellow-400 mb-4">About Me</h3>
-            <p class="text-gray-300">I’m a passionate developer who loves building creative, functional, and
+            <h3 class="text-3xl font-bold text-yellow-400 mb-4" data-i18n="about.title">About Me</h3>
+            <p class="text-gray-300" data-i18n="about.description">I'm a passionate developer who loves building creative, functional, and
                 user-friendly applications. With a background in full-stack development, I specialize in delivering
                 solutions that merge clean design with efficient code.</p>
         </div>
@@ -68,27 +69,27 @@
 
     <!-- Projects -->
     <section id="projects" class="min-h-screen py-16 px-6">
-        <h3 class="text-3xl font-bold text-yellow-400 mb-12 text-center fade-in">Projects</h3>
+        <h3 class="text-3xl font-bold text-yellow-400 mb-12 text-center fade-in" data-i18n="projects.title">Projects</h3>
         <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition fade-in">
                 <img src="https://via.placeholder.com/400x250" alt="Project 1">
                 <div class="p-4">
-                    <h4 class="font-bold text-xl">Project One</h4>
-                    <p class="text-gray-400">Short description of the project goes here.</p>
+                    <h4 class="font-bold text-xl" data-i18n="projects.project1.title">Project One</h4>
+                    <p class="text-gray-400" data-i18n="projects.project1.description">Short description of the project goes here.</p>
                 </div>
             </div>
             <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition fade-in">
                 <img src="https://via.placeholder.com/400x250" alt="Project 2">
                 <div class="p-4">
-                    <h4 class="font-bold text-xl">Project Two</h4>
-                    <p class="text-gray-400">Short description of the project goes here.</p>
+                    <h4 class="font-bold text-xl" data-i18n="projects.project2.title">Project Two</h4>
+                    <p class="text-gray-400" data-i18n="projects.project2.description">Short description of the project goes here.</p>
                 </div>
             </div>
             <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition fade-in">
                 <img src="https://via.placeholder.com/400x250" alt="Project 3">
                 <div class="p-4">
-                    <h4 class="font-bold text-xl">Project Three</h4>
-                    <p class="text-gray-400">Short description of the project goes here.</p>
+                    <h4 class="font-bold text-xl" data-i18n="projects.project3.title">Project Three</h4>
+                    <p class="text-gray-400" data-i18n="projects.project3.description">Short description of the project goes here.</p>
                 </div>
             </div>
         </div>
@@ -96,45 +97,45 @@
 
     <!-- Skills -->
     <section id="skills" class="min-h-screen py-16 px-6 bg-gray-800">
-        <h3 class="text-3xl font-bold text-yellow-400 mb-12 text-center fade-in">Skills</h3>
+        <h3 class="text-3xl font-bold text-yellow-400 mb-12 text-center fade-in" data-i18n="skills.title">Skills</h3>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             <div class="text-center fade-in">
                 <span class="text-5xl">💻</span>
-                <p class="mt-2">Angular</p>
+                <p class="mt-2" data-i18n="skills.skill1">Angular</p>
             </div>
             <div class="text-center fade-in">
                 <span class="text-5xl">⚛️</span>
-                <p class="mt-2">React</p>
+                <p class="mt-2" data-i18n="skills.skill2">React</p>
             </div>
             <div class="text-center fade-in">
                 <span class="text-5xl">🎨</span>
-                <p class="mt-2">CSS</p>
+                <p class="mt-2" data-i18n="skills.skill3">CSS</p>
             </div>
             <div class="text-center fade-in">
                 <span class="text-5xl">☁️</span>
-                <p class="mt-2">AWS</p>
+                <p class="mt-2" data-i18n="skills.skill4">AWS</p>
             </div>
         </div>
     </section>
 
     <!-- Contact -->
     <section id="contact" class="min-h-screen flex flex-col justify-center items-center px-6">
-        <h3 class="text-3xl font-bold text-yellow-400 mb-6 fade-in">Get In Touch</h3>
+        <h3 class="text-3xl font-bold text-yellow-400 mb-6 fade-in" data-i18n="contact.title">Get In Touch</h3>
         <form class="w-full max-w-md space-y-4 fade-in">
-            <input type="text" placeholder="Your Name"
+            <input type="text" data-i18n="contact.namePlaceholder" placeholder="Your Name"
                 class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:border-yellow-400 outline-none">
-            <input type="email" placeholder="Your Email"
+            <input type="email" data-i18n="contact.emailPlaceholder" placeholder="Your Email"
                 class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:border-yellow-400 outline-none">
-            <textarea placeholder="Your Message" rows="4"
+            <textarea data-i18n="contact.messagePlaceholder" placeholder="Your Message" rows="4"
                 class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:border-yellow-400 outline-none"></textarea>
-            <button type="submit"
+            <button type="submit" data-i18n="contact.submitButton"
                 class="w-full bg-yellow-400 text-gray-900 font-semibold py-3 rounded hover:bg-yellow-300 transition">Send
                 Message</button>
         </form>
     </section>
 
     <!-- Footer -->
-    <footer class="py-4 text-center text-gray-500 text-sm bg-gray-900">
+    <footer class="py-4 text-center text-gray-500 text-sm bg-gray-900" data-i18n="footer.copyright">
         © 2025 Claudio Cuellar. All rights reserved.
     </footer>
 

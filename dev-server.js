@@ -14,7 +14,9 @@ browserSync.init({
   files: [
     path.join(sourceDir, '*.html'),
     path.join(sourceDir, '*.css'),
-    path.join(sourceDir, '*.js')
+    path.join(sourceDir, '*.js'),
+    path.join(sourceDir, 'src/i18n/**/*.js'),
+    path.join(sourceDir, 'src/i18n/**/*.json')
   ],
   open: true,
   notify: false,

@@ -1,0 +1,55 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre Mí",
+    "projects": "Proyectos",
+    "skills": "Habilidades",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "greeting": "Hola, soy Claudio",
+    "subtitle": "Desarrollador Frontend & Backend | Convirtiendo ideas en realidad",
+    "cta": "Ver Mi Trabajo"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "description": "Soy un desarrollador apasionado que ama crear aplicaciones creativas, funcionales y fáciles de usar. Con experiencia en desarrollo full-stack, me especializo en ofrecer soluciones que combinan diseño limpio con código eficiente."
+  },
+  "projects": {
+    "title": "Proyectos",
+    "project1": {
+      "title": "Proyecto Uno",
+      "description": "Breve descripción del proyecto aquí."
+    },
+    "project2": {
+      "title": "Proyecto Dos",
+      "description": "Breve descripción del proyecto aquí."
+    },
+    "project3": {
+      "title": "Proyecto Tres",
+      "description": "Breve descripción del proyecto aquí."
+    }
+  },
+  "skills": {
+    "title": "Habilidades",
+    "skill1": "Angular",
+    "skill2": "React",
+    "skill3": "CSS",
+    "skill4": "AWS"
+  },
+  "contact": {
+    "title": "Contáctame",
+    "namePlaceholder": "Tu Nombre",
+    "emailPlaceholder": "Tu Email",
+    "messagePlaceholder": "Tu Mensaje",
+    "submitButton": "Enviar Mensaje"
+  },
+  "footer": {
+    "copyright": "© 2025 Claudio Cuellar. Todos los derechos reservados."
+  },
+  "languageSelector": {
+    "language": "Idioma",
+    "en": "Inglés",
+    "es": "Español"
+  }
+}
