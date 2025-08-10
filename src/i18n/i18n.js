@@ -162,7 +162,7 @@ class I18nManager {
   addLanguageSelector() {
     // Create language selector container
     const container = document.createElement('div');
-    container.className = 'language-selector-container fixed top-4 right-4 z-50';
+    container.className = 'language-selector-container fixed top-4 right-16 z-50';
     
     // Create select element
     const select = document.createElement('select');
