@@ -4,6 +4,11 @@
  * This module provides functionality to load and apply translations
  * to the website based on the selected language.
  */
+
+// Preload all JSON translations in this folder
+// eager: false → returns async loader functions
+const translationLoaders = import.meta.glob('./*.json');
+
 export class I18nManager {
   constructor() {
     this.translations = {};
@@ -35,21 +40,14 @@ export class I18nManager {
     return this;
   }
 
-  /**
-   * Load translation file for a specific language
-   * @param {string} lang - Language code
-   * @returns {Promise} A promise that resolves when the translation is loaded
-   */
-
-
   async loadTranslation(lang) {
-    const translationModules = import.meta.glob('./*.json', { eager: true });
-
     const key = `./${lang}.json`;
-    if (translationModules[key]) {
-      return translationModules[key];
+    if (translationLoaders[key]) {
+      const module = await translationLoaders[key]();
+      this.translations[lang] = module.default; // JSON default export
+    } else {
+      console.error(`Translation file for ${lang} not found`);
     }
-    throw new Error(`Translation for ${lang} not found`);
   }
 
   /**
