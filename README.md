@@ -19,6 +19,14 @@ npm install
 
 Edit the `index.html` file directly. The site uses Tailwind CSS via CDN for styling.
 
+To start the development server with hot reload:
+
+```bash
+npm run dev
+```
+
+This will start a development server at http://localhost:3000 with hot reloading enabled. Any changes to HTML, CSS, or JavaScript files will automatically refresh the browser.
+
 ## Building
 
 To build and minify the HTML file:
@@ -46,3 +54,4 @@ This will start a local server at http://localhost:8080 serving the minified fil
 - JavaScript
 - Babel
 - HTML Minifier
+- Browser-Sync (for hot reloading)
