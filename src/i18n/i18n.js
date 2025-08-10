@@ -4,7 +4,6 @@
  * This module provides functionality to load and apply translations
  * to the website based on the selected language.
  */
-
 export class I18nManager {
   constructor() {
     this.translations = {};
@@ -22,16 +21,16 @@ export class I18nManager {
     // Load translations for all supported languages
     const loadPromises = this.supportedLanguages.map(lang => this.loadTranslation(lang));
     await Promise.all(loadPromises);
-    
+
     // Set initial language based on browser preference or localStorage
     this.currentLanguage = this.getSavedLanguage() || this.getBrowserLanguage() || this.defaultLanguage;
-    
+
     // Apply translations
     this.applyTranslations();
-    
+
     // Add language selector to the page
     this.addLanguageSelector();
-    
+
     this.initialized = true;
     return this;
   }
@@ -41,20 +40,16 @@ export class I18nManager {
    * @param {string} lang - Language code
    * @returns {Promise} A promise that resolves when the translation is loaded
    */
+
+
   async loadTranslation(lang) {
-    try {
-      // Use dynamic import for JSON files which is supported by Vite
-      this.translations[lang] = await import(`./${lang}.json`)
-        .then(module => module.default)
-        .catch(error => {
-          console.error(`Failed to load ${lang} translations:`, error);
-          return {};
-        });
-    } catch (error) {
-      console.error(`Error loading ${lang} translations:`, error);
-      // Fallback to empty object if translation file can't be loaded
-      this.translations[lang] = {};
+    const translationModules = import.meta.glob('./*.json', { eager: true });
+
+    const key = `./${lang}.json`;
+    if (translationModules[key]) {
+      return translationModules[key];
     }
+    throw new Error(`Translation for ${lang} not found`);
   }
 
   /**
@@ -94,7 +89,7 @@ export class I18nManager {
     this.currentLanguage = lang;
     this.saveLanguage();
     this.applyTranslations();
-    
+
     // Update flag buttons active state
     const flagButtons = document.querySelectorAll('.flag-button');
     if (flagButtons.length > 0) {
@@ -119,12 +114,12 @@ export class I18nManager {
   t(key) {
     const keys = key.split('.');
     let result = this.translations[this.currentLanguage];
-    
+
     // Fallback to default language if translation doesn't exist
     if (!result) {
       result = this.translations[this.defaultLanguage];
     }
-    
+
     // Navigate through the nested keys
     for (const k of keys) {
       if (result && result[k] !== undefined) {
@@ -142,7 +137,7 @@ export class I18nManager {
         return fallback;
       }
     }
-    
+
     return result;
   }
 
@@ -153,7 +148,7 @@ export class I18nManager {
     document.querySelectorAll('[data-i18n]').forEach(element => {
       const key = element.getAttribute('data-i18n');
       const translation = this.t(key);
-      
+
       // Handle different element types
       if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
         if (element.getAttribute('placeholder')) {
@@ -174,13 +169,13 @@ export class I18nManager {
     // Create container
     const container = document.createElement('div');
     container.className = 'language-selector-container fixed top-4 right-16 z-50 flex gap-2';
-    
+
     // Flag mapping
     const flagEmojis = {
       'en': '🇺🇸',
       'es': '🇪🇸'
     };
-    
+
     // Create flag buttons
     this.supportedLanguages.forEach(lang => {
       const button = document.createElement('button');
@@ -188,25 +183,25 @@ export class I18nManager {
       button.setAttribute('data-lang', lang);
       button.setAttribute('title', this.t(`languageSelector.${lang}`));
       button.setAttribute('aria-label', this.t(`languageSelector.${lang}`));
-      
+
       // Set active state for current language
       if (lang === this.currentLanguage) {
         button.classList.add('border-2', 'border-yellow-400');
       } else {
         button.classList.add('border-transparent');
       }
-      
+
       // Add flag emoji
       button.textContent = flagEmojis[lang] || lang.toUpperCase();
-      
+
       // Add event listener
       button.addEventListener('click', () => {
         this.changeLanguage(lang);
       });
-      
+
       container.appendChild(button);
     });
-    
+
     // Add to page
     document.body.appendChild(container);
   }
