@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite';
+import tailwindcss from '@tailwindcss/vite'
 import { resolve } from 'path';
 import fs from 'fs';
 import path from 'path';
@@ -83,5 +84,8 @@ export default defineConfig({
       '@': resolve(__dirname, 'src'),
     },
   },
-  plugins: [i18nHMRPlugin()],
+  plugins: [
+    i18nHMRPlugin(),
+    tailwindcss(),
+  ],
 });
