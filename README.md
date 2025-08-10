@@ -1,74 +1,74 @@
-# Claudio Cuellar - Personal Website
+# Claudio Cuellar Portfolio Website
 
-This is the repository for my personal website.
+This is the source code for Claudio Cuellar's personal portfolio website.
 
-## Setup
+## Technologies Used
+
+- HTML5
+- CSS3 (with Tailwind CSS)
+- JavaScript (ES6+)
+- Vite (for build and development)
+
+## Getting Started
 
 ### Prerequisites
 
 - Node.js (v14 or higher)
-- npm
+- npm (v6 or higher)
 
 ### Installation
 
-```bash
-npm install
-```
+1. Clone the repository
+   ```bash
+   git clone https://github.com/claudio252/claudio-cuellar.com.git
+   cd claudio-cuellar.com
+   ```
 
-## Development
+2. Install dependencies
+   ```bash
+   npm install
+   ```
 
-Edit the `index.html` file directly. The site uses Tailwind CSS via CDN for styling.
+### Development
 
-To start the development server with hot reload:
+To start the development server:
 
 ```bash
 npm run dev
 ```
 
-This will start a development server at http://localhost:3000 with hot reloading enabled. Any changes to HTML, CSS, or JavaScript files will automatically refresh the browser.
+This will start a development server at http://localhost:3000 with hot module replacement enabled.
 
-### Internationalization (i18n)
+### Building for Production
 
-The website supports multiple languages through a custom i18n implementation. Translation files are located in the `src/i18n` directory:
-
-- `en.json` - English translations
-- `es.json` - Spanish translations
-
-To add a new language:
-
-1. Create a new JSON file in the `src/i18n` directory (e.g., `fr.json`)
-2. Copy the structure from an existing translation file
-3. Translate all the strings
-4. Add the new language code to the `supportedLanguages` array in `src/i18n/i18n.js`
-
-The language selector appears in the top-right corner of the website, allowing users to switch between available languages.
-
-## Building
-
-To build and minify the HTML file:
+To build the site for production:
 
 ```bash
 npm run build
 ```
 
-This will create a minified version of the HTML file in the `dist` directory.
+This will generate optimized files in the `dist` directory.
 
-## Serving
+### Preview Production Build
 
-To serve the built files locally:
+To preview the production build locally:
 
 ```bash
-npm run serve
+npm run preview
 ```
 
-This will start a local server at http://localhost:8080 serving the minified files.
+## Project Structure
 
-## Technologies Used
+- `index.html` - Main HTML file
+- `src/` - Source files
+  - `main.js` - Main JavaScript entry point
+  - `i18n/` - Internationalization files
+    - `i18n.js` - Internationalization utility
+    - `en.json` - English translations
+    - `es.json` - Spanish translations
+- `dist/` - Production build output (generated)
+- `vite.config.js` - Vite configuration
 
-- HTML5
-- Tailwind CSS
-- JavaScript
-- Babel
-- HTML Minifier
-- Browser-Sync (for hot reloading)
-- Custom i18n implementation for multilingual support
+## Deployment
+
+The site is automatically deployed via GitHub Actions when changes are pushed to the main branch.

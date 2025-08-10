@@ -5,7 +5,7 @@
  * to the website based on the selected language.
  */
 
-class I18nManager {
+export class I18nManager {
   constructor() {
     this.translations = {};
     this.currentLanguage = 'en';
@@ -43,11 +43,13 @@ class I18nManager {
    */
   async loadTranslation(lang) {
     try {
-      const response = await fetch(`/src/i18n/${lang}.json`);
-      if (!response.ok) {
-        throw new Error(`Failed to load ${lang} translations`);
-      }
-      this.translations[lang] = await response.json();
+      // Use dynamic import for JSON files which is supported by Vite
+      this.translations[lang] = await import(`./${lang}.json`)
+        .then(module => module.default)
+        .catch(error => {
+          console.error(`Failed to load ${lang} translations:`, error);
+          return {};
+        });
     } catch (error) {
       console.error(`Error loading ${lang} translations:`, error);
       // Fallback to empty object if translation file can't be loaded
@@ -220,3 +222,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Export for global use
 window.i18n = i18n;
+
+// Export the singleton instance as default
+export default i18n;

@@ -4,9 +4,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node build.js",
-    "serve": "npx http-server dist",
-    "dev": "node dev-server.js"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "repository": {
     "type": "git",
@@ -21,11 +21,6 @@
   "homepage": "https://github.com/claudio252/claudio-cuellar.com#readme",
   "description": "",
   "devDependencies": {
-    "@babel/cli": "^7.28.0",
-    "@babel/core": "^7.28.0",
-    "@babel/preset-env": "^7.28.0",
-    "browser-sync": "^3.0.4",
-    "html-minifier": "^4.0.0",
-    "http-server": "^14.1.1"
+    "vite": "^4.5.0"
   }
 }
