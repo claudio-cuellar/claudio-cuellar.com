@@ -87,5 +87,8 @@ export default defineConfig({
   plugins: [
     i18nHMRPlugin(),
     tailwindcss(),
+    sitemap({
+      hostname: 'https://www.claudio-cuellar.com',
+    })
   ],
 });
