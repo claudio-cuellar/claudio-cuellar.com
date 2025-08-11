@@ -23,6 +23,9 @@ jobs:
       - name: Build site with Vite
         run: npm run build
 
+      - name: Add robots.txt to build
+        run: cp robots.txt dist/
+
       - name: Clean target directory
         uses: appleboy/ssh-action@master
         with:
