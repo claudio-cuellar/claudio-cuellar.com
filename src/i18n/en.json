@@ -14,6 +14,7 @@
   },
   "about": {
     "title": "About Me",
+    "subtitle": "Passionate full-stack developer crafting digital experiences that merge creativity with functionality",
     "description": "I'm a passionate developer who loves building creative, functional, and user-friendly applications. With a background in full-stack development, I specialize in delivering solutions that merge clean design with efficient code."
   },
   "projects": {
