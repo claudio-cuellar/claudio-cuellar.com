@@ -57,6 +57,11 @@ nav a.active {
     display: none;
 }
 
+.mobile-menu-button svg,
+.mobile-menu-button svg * {
+    pointer-events: none;
+}
+
 .nav-links {
     display: flex;
 }
