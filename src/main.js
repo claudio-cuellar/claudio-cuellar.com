@@ -5,6 +5,41 @@
 // Import the i18n manager
 import i18n from './i18n/i18n.js';
 
+// Lightweight Typewriter Effect
+class TypewriterEffect {
+  constructor(element, text, speed = 100, delay = 1000) {
+    this.element = element;
+    this.text = text;
+    this.speed = speed;
+    this.delay = delay;
+    this.index = 0;
+  }
+
+  start() {
+    this.element.textContent = '';
+    this.element.style.borderRight = '2px solid #facc15';
+    this.element.style.animation = 'blink 1s infinite';
+    
+    setTimeout(() => {
+      this.type();
+    }, this.delay);
+  }
+
+  type() {
+    if (this.index < this.text.length) {
+      this.element.textContent += this.text.charAt(this.index);
+      this.index++;
+      setTimeout(() => this.type(), this.speed);
+    } else {
+      // Remove cursor after typing is complete
+      setTimeout(() => {
+        this.element.style.borderRight = 'none';
+        this.element.style.animation = 'none';
+      }, 1000);
+    }
+  }
+}
+
 // SPA Router
 class SPARouter {
   constructor() {
@@ -52,6 +87,11 @@ class SPARouter {
       this.showSection(sectionId);
       this.updateActiveNav(hash);
       this.currentSection = hash;
+      
+      // Trigger typewriter effect when navigating to hero
+      if (hash === '#hero') {
+        this.initTypewriterEffect();
+      }
     }
   }
 
@@ -97,6 +137,28 @@ class SPARouter {
       observer.observe(el);
     });
   }
+
+  initTypewriterEffect() {
+    setTimeout(() => {
+      const greetingElement = document.getElementById('typewriter-greeting');
+      const subtitleElement = document.getElementById('typewriter-subtitle');
+      
+      if (greetingElement && subtitleElement) {
+        const greetingText = greetingElement.textContent;
+        const subtitleText = subtitleElement.textContent;
+        
+        // Start greeting typewriter
+        const greetingTypewriter = new TypewriterEffect(greetingElement, greetingText, 80, 500);
+        greetingTypewriter.start();
+        
+        // Start subtitle typewriter after greeting is done
+        setTimeout(() => {
+          const subtitleTypewriter = new TypewriterEffect(subtitleElement, subtitleText, 60, 0);
+          subtitleTypewriter.start();
+        }, greetingText.length * 80 + 1500);
+      }
+    }, 1000);
+  }
 }
 
 // Initialize the application
@@ -114,6 +176,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.1 });
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  
+  // Initialize typewriter effect on initial load if on hero section
+  if (!window.location.hash || window.location.hash === '#hero') {
+    router.initTypewriterEffect();
+  }
   
   // Mobile menu toggle
   const mobileMenuButton = document.querySelector('.mobile-menu-button');

@@ -156,3 +156,9 @@ nav a.active {
         font-size: 0.875rem;
     }
 }
+
+/* Add this to your existing CSS */
+@keyframes blink {
+  0%, 50% { border-color: #facc15; }
+  51%, 100% { border-color: transparent; }
+}
