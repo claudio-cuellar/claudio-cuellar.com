@@ -55,6 +55,7 @@
                 <li class="px-3"><a href="#about" class="hover:text-yellow-400 transition" data-i18n="nav.about">About</a></li>
                 <li class="px-3"><a href="#projects" class="hover:text-yellow-400 transition" data-i18n="nav.projects">Projects</a></li>
                 <li class="px-3"><a href="#skills" class="hover:text-yellow-400 transition" data-i18n="nav.skills">Skills</a></li>
+                <li class="px-3"><a href="#cv" class="hover:text-yellow-400 transition" data-i18n="nav.cv">CV</a></li>
                 <li class="px-3"><a href="#contact" class="hover:text-yellow-400 transition" data-i18n="nav.contact">Contact</a></li>
             </ul>
         </div>
@@ -131,6 +132,92 @@
             <div class="text-center fade-in">
                 <span class="text-5xl">☁️</span>
                 <p class="mt-2" data-i18n="skills.skill4">AWS</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CV -->
+    <section id="cv" class="min-h-screen py-16 px-6">
+        <h3 class="text-3xl font-bold text-yellow-400 mb-12 text-center fade-in" data-i18n="cv.title">Curriculum Vitae</h3>
+        <div class="max-w-4xl mx-auto bg-gray-800 rounded-xl p-8 shadow-lg fade-in">
+            <!-- CV Header -->
+            <div class="text-center mb-8">
+                <h4 class="text-4xl font-bold text-white mb-4">Claudio Cuellar</h4>
+                <div class="flex flex-wrap justify-center gap-4 text-gray-300">
+                    <span>📍 Bolivia</span>
+                    <span>📧 claudio.cuellar@gmail.com</span>
+                    <span>📱 +591 77502002</span>
+                </div>
+                <div class="flex flex-wrap justify-center gap-4 mt-2 text-gray-300">
+                    <a href="https://claudio-cuellar.com" class="hover:text-yellow-400 transition">🌐 claudio-cuellar.com</a>
+                    <a href="https://linkedin.com/in/claudiocuellar" class="hover:text-yellow-400 transition">💼 LinkedIn</a>
+                    <a href="https://github.com/claudio252" class="hover:text-yellow-400 transition">🖥 GitHub</a>
+                </div>
+            </div>
+
+            <!-- Professional Summary -->
+            <div class="mb-8">
+                <h5 class="text-2xl font-bold text-yellow-400 mb-4" data-i18n="cv.summary.title">Professional Summary</h5>
+                <p class="text-gray-300" data-i18n="cv.summary.description">Full-Stack Developer with 10 years of experience building high-performance web and cloud applications. Skilled in Angular (2–20), Javascript, Typescript, Tailwind CSS. Proven track record migrating legacy systems to modern architectures, optimizing performance, and delivering scalable solutions.</p>
+            </div>
+
+            <!-- Technical Skills -->
+            <div class="mb-8">
+                <h5 class="text-2xl font-bold text-yellow-400 mb-4" data-i18n="cv.skills.title">Technical Skills</h5>
+                <div class="grid md:grid-cols-2 gap-4 text-gray-300">
+                    <div>
+                        <strong class="text-white">Frontend:</strong> Angular, TypeScript, Tailwind CSS, HTML5, CSS3, JavaScript (ES6+), React
+                    </div>
+                    <div>
+                        <strong class="text-white">Backend:</strong> C#, .NET Core, REST APIs, Python, Node.js, Java
+                    </div>
+                    <div>
+                        <strong class="text-white">Databases:</strong> SQL Server, PostgreSQL, MongoDB
+                    </div>
+                    <div>
+                        <strong class="text-white">Cloud & DevOps:</strong> AWS (S3, EC2, SES), Azure, Docker, GitHub Actions
+                    </div>
+                </div>
+            </div>
+
+            <!-- Professional Experience -->
+            <div class="mb-8">
+                <h5 class="text-2xl font-bold text-yellow-400 mb-4" data-i18n="cv.experience.title">Professional Experience</h5>
+                <div class="space-y-6">
+                    <div>
+                        <h6 class="text-xl font-semibold text-white">Full-Stack Developer</h6>
+                        <p class="text-gray-400 mb-2">Company Name — Location | MM/YYYY – Present</p>
+                        <ul class="text-gray-300 space-y-1 list-disc list-inside">
+                            <li>Migrated enterprise Angular 2/5 applications to Angular 8, improving maintainability and compatibility</li>
+                            <li>Led migration of a legacy Visual Basic 6.0 desktop app to a cloud microservices architecture</li>
+                            <li>Developed new features and maintained a C# desktop app, reducing bugs by 30%</li>
+                            <li>Implemented automated testing with Cypress and Jasmine, increasing test coverage to 85%</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h6 class="text-xl font-semibold text-white">Software Developer</h6>
+                        <p class="text-gray-400 mb-2">Company Name — Location | MM/YYYY – MM/YYYY</p>
+                        <ul class="text-gray-300 space-y-1 list-disc list-inside">
+                            <li>Designed POS web modules with lazy loading and TailwindCSS, improving load times and UX</li>
+                            <li>Built RESTful APIs in C# for multi-tenant systems</li>
+                            <li>Automated deployment pipelines from GitHub to AWS EC2 instances</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div class="mb-8">
+                <h5 class="text-2xl font-bold text-yellow-400 mb-4" data-i18n="cv.education.title">Education</h5>
+                <div>
+                    <h6 class="text-xl font-semibold text-white">Bachelor's Degree in Computer Science</h6>
+                    <p class="text-gray-400">Universidad Mayor de San Andres — La Paz | 2026</p>
+                </div>
+            </div>
+
+            <!-- Download CV Button -->
+            <div class="text-center">
+                <a href="./cv.pdf" download class="inline-block px-6 py-3 bg-yellow-400 text-gray-900 font-semibold rounded-full hover:bg-yellow-300 transition" data-i18n="cv.download">Download PDF</a>
             </div>
         </div>
     </section>

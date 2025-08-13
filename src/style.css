@@ -17,6 +17,29 @@ html {
     transform: translateY(0);
 }
 
+/* SPA Section styles */
+section {
+    display: none;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: opacity 0.3s ease-in-out;
+}
+
+section:target,
+section.active {
+    display: flex;
+}
+
+/* Show hero section by default */
+#hero {
+    display: flex;
+}
+
+/* Navigation active state */
+nav a.active {
+    color: #fbbf24 !important;
+}
+
 /* Mobile menu styles */
 .mobile-menu-button {
     display: none;

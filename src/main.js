@@ -5,9 +5,106 @@
 // Import the i18n manager
 import i18n from './i18n/i18n.js';
 
+// SPA Router
+class SPARouter {
+  constructor() {
+    this.routes = {
+      '#hero': 'hero',
+      '#about': 'about', 
+      '#projects': 'projects',
+      '#skills': 'skills',
+      '#cv': 'cv',
+      '#contact': 'contact'
+    };
+    this.currentSection = '#hero';
+    this.init();
+  }
+
+  init() {
+    // Handle initial route
+    this.handleRoute();
+    
+    // Listen for hash changes
+    window.addEventListener('hashchange', () => this.handleRoute());
+    
+    // Handle navigation clicks
+    document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const hash = link.getAttribute('href');
+        this.navigateTo(hash);
+      });
+    });
+  }
+
+  navigateTo(hash) {
+    if (this.routes[hash]) {
+      window.location.hash = hash;
+      this.handleRoute();
+    }
+  }
+
+  handleRoute() {
+    const hash = window.location.hash || '#hero';
+    const sectionId = this.routes[hash];
+    
+    if (sectionId) {
+      this.showSection(sectionId);
+      this.updateActiveNav(hash);
+      this.currentSection = hash;
+    }
+  }
+
+  showSection(targetId) {
+    // Hide all sections
+    document.querySelectorAll('section').forEach(section => {
+      section.style.display = 'none';
+    });
+    
+    // Show target section
+    const targetSection = document.getElementById(targetId);
+    if (targetSection) {
+      targetSection.style.display = 'flex';
+      // Trigger fade-in animations for newly visible elements
+      this.triggerAnimations(targetSection);
+    }
+  }
+
+  updateActiveNav(hash) {
+    // Remove active class from all nav links
+    document.querySelectorAll('nav a').forEach(link => {
+      link.classList.remove('text-yellow-400');
+    });
+    
+    // Add active class to current nav link
+    const activeLink = document.querySelector(`nav a[href="${hash}"]`);
+    if (activeLink) {
+      activeLink.classList.add('text-yellow-400');
+    }
+  }
+
+  triggerAnimations(section) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    section.querySelectorAll('.fade-in').forEach(el => {
+      el.classList.remove('show');
+      observer.observe(el);
+    });
+  }
+}
+
 // Initialize the application
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize fade-in animations
+  // Initialize SPA Router
+  const router = new SPARouter();
+
+  // Initialize fade-in animations for initial load
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {

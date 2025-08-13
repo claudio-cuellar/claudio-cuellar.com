@@ -4,6 +4,7 @@
     "about": "About",
     "projects": "Projects",
     "skills": "Skills",
+    "cv": "CV",
     "contact": "Contact"
   },
   "hero": {
@@ -36,6 +37,23 @@
     "skill2": "React",
     "skill3": "CSS",
     "skill4": "AWS"
+  },
+  "cv": {
+    "title": "Curriculum Vitae",
+    "summary": {
+      "title": "Professional Summary",
+      "description": "Full-Stack Developer with 10 years of experience building high-performance web and cloud applications. Skilled in Angular (2–20), Javascript, Typescript, Tailwind CSS. Proven track record migrating legacy systems to modern architectures, optimizing performance, and delivering scalable solutions."
+    },
+    "skills": {
+      "title": "Technical Skills"
+    },
+    "experience": {
+      "title": "Professional Experience"
+    },
+    "education": {
+      "title": "Education"
+    },
+    "download": "Download PDF"
   },
   "contact": {
     "title": "Get In Touch",
