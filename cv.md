@@ -5,7 +5,7 @@
 📱 +591 77502002  
 🌐 [claudio-cuellar.com](https://claudio-cuellar.com)  
 💼 [linkedin.com/in/claudiocuellar](https://linkedin.com/in/claudiocuellar)  
-🖥 [github.com/252](https://github.com/claudio252)
+🖥 [github.com/claudio-cuellar](https://github.com/claudio-cuellar)
 
 ---
 
@@ -28,19 +28,50 @@ Full-Stack Developer with 10 years of experience building high-performance web a
 
 ## Professional Experience
 
-### Full-Stack Developer  
-*Company Name* — *Location* | *MM/YYYY – Present*  
-- Migrated enterprise Angular 2/5 applications to Angular 8, improving maintainability and compatibility.  
-- Led migration of a legacy Visual Basic 6.0 desktop app to a cloud microservices architecture using Angular and C#.  
-- Developed new features and maintained a C# desktop app, reducing bugs by 30% and improving performance.  
-- Implemented automated unit and end-to-end testing with Cypress and Jasmine, increasing test coverage to 85%.  
-- Integrated AWS SES for transactional email automation, cutting delivery errors by 40%.
+### Frontend Developer  
+**Intertec - Retail Application**  
+*Intertec International* — *Remote* | *01/2019 – 01/2025*  
+- Led comprehensive Angular migrations from versions 2→8, 5→8, and 8→15 across multiple libraries and applications, ensuring compatibility and improved performance.  
+- Developed comprehensive testing strategies using Jasmine, Karma, and Jest for unit testing, achieving high code coverage and reliability.  
+- Implemented end-to-end testing solutions using Cypress and Selenium, automating critical user workflows and reducing manual testing time by 60%.  
+- Built responsive web components using Angular, React, and Vue.js for cross-framework compatibility, enabling seamless integration across different client applications.  
+- Added new features, debugged complex issues, and maintained codebases for multiple libraries and applications while ensuring responsive design principles.
 
-### Software Developer  
-*Company Name* — *Location* | *MM/YYYY – MM/YYYY*  
-- Designed POS web modules with lazy loading and TailwindCSS, improving load times and UX.  
-- Built RESTful APIs in C# for multi-tenant systems.  
-- Automated deployment pipelines from GitHub to AWS EC2 instances.
+### Full-Stack Developer  
+**Intertec - ERP Application**  
+*Intertec International* — *Remote* | *11/2018 – 02/2019*  
+- Collaborated as part of a development team to migrate a legacy Visual Basic 6.0 desktop application to a modern cloud-based AWS solution.  
+- Developed Angular frontend components and services, creating a responsive and intuitive user interface that improved user experience by 50%.  
+- Built robust C# backend APIs and microservices, implementing RESTful endpoints and business logic for seamless data processing.  
+- Implemented data migration strategies and validation processes, ensuring 100% data integrity during the transition from desktop to cloud.  
+- Collaborated with cross-functional teams using Agile methodologies, delivering the project on time and within budget.
+- Added unit tests using Jasmine and Karma frameworks to ensure code quality and reliability.  
+- Added integration tests using SpecFlow for C# backend components.  
+
+### Fullstack Developer  
+**Coderoad - Mojix**  
+*Coderoad - Mojix* — *La Paz - Bolivia* | *2010 – 2018*  
+
+**Fullstack Developer**  
+- Migrated ERP application from Visual Basic 6 to Angular for the frontend and C# for the backend with AWS infrastructure.  
+- Added unit tests using Jasmine and Karma frameworks to ensure code quality and reliability.  
+- Added integration tests using SpecFlow for C# backend components.  
+
+**Java Developer**  
+- Developed a new Java ME application using Java AWT for mobile device compatibility.  
+- Migrated Mosquitto client from Java Standard Edition to support Java Micro Edition environments.  
+- Built a new Java SE desktop application using Java Swing for enhanced user interface.  
+
+**C++ Developer**  
+- Added new features, debugged issues, and maintained existing C++ applications.  
+- Implemented support for handling maps, loading them for display and elements positioning.  
+
+**QA Engineer**  
+- Analyzed product requirements, created comprehensive test cases, and developed test plans.  
+- Executed test plans, reported bugs in Jira, and generated detailed testing reports.  
+
+**Javascript Developer**  
+- Developed code using XSL + XML + Javascript to create form templates compiled in HTML for Electronic Data Interchange (EDI forms).  
 
 ---
 
@@ -61,12 +92,13 @@ Full-Stack Developer with 10 years of experience building high-performance web a
 
 ## Certifications
 
-- AWS Certified Developer – Associate (Optional)  
-- Microsoft Certified: Azure Fundamentals (Optional)
+- Programming in Python by Meta - Coursera  
+- Introduction to Databases for Back-End Development by Meta - Coursera  
+- Django Web Framework by Meta - Coursera
 
 ---
 
 ## Languages
 
 - English — Professional Working Proficiency  
-- Spanish — Native Speaker  
+- Spanish — Native Speaker
