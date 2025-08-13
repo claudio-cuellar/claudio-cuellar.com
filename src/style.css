@@ -140,11 +140,9 @@ nav a.active {
         font-size: 1rem;
     }
 
-    /* Adjust language selector position on small screens */
+    /* Adjust language selector on small screens */
     .language-selector-container {
-        right: 4px;
-        top: 50%;
-        transform: translateY(-50%);
+        gap: 0.25rem;
     }
     
     .flag-button {

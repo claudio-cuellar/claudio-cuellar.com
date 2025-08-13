@@ -166,7 +166,7 @@ export class I18nManager {
   addLanguageSelector() {
     // Create container
     const container = document.createElement('div');
-    container.className = 'language-selector-container fixed top-4 right-16 z-50 flex gap-2';
+    container.className = 'language-selector-container flex gap-2';
 
     // Flag mapping
     const flagEmojis = {
@@ -200,8 +200,14 @@ export class I18nManager {
       container.appendChild(button);
     });
 
-    // Add to page
-    document.body.appendChild(container);
+    // Find the mobile menu button and insert the container before it
+    const mobileMenuButton = document.querySelector('.mobile-menu-button');
+    if (mobileMenuButton && mobileMenuButton.parentNode) {
+      mobileMenuButton.parentNode.insertBefore(container, mobileMenuButton);
+    } else {
+      // Fallback: add to body if mobile menu button not found
+      document.body.appendChild(container);
+    }
   }
 }
 
