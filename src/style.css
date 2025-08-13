@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+/* Custom font family */
+body {
+    font-family: 'Inconsolata', 'Courier New', monospace;
+}
+
 /* Smooth scroll behavior */
 html {
     scroll-behavior: smooth;
@@ -15,6 +20,12 @@ html {
 .fade-in.show {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Typewriter cursor animation */
+@keyframes blink {
+    0%, 50% { border-color: #facc15; }
+    51%, 100% { border-color: transparent; }
 }
 
 /* SPA Section styles */
