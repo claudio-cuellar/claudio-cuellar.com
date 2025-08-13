@@ -200,14 +200,50 @@ export class I18nManager {
       container.appendChild(button);
     });
 
-    // Find the mobile menu button and insert the container before it
-    const mobileMenuButton = document.querySelector('.mobile-menu-button');
-    if (mobileMenuButton && mobileMenuButton.parentNode) {
-      mobileMenuButton.parentNode.insertBefore(container, mobileMenuButton);
+    // Check if desktop (>768px) or mobile
+    const isDesktop = window.innerWidth > 768;
+    
+    if (isDesktop) {
+      // Desktop: append to nav-links
+      const navLinks = document.querySelector('.nav-links');
+      if (navLinks) {
+        navLinks.appendChild(container);
+      } else {
+        document.body.appendChild(container);
+      }
     } else {
-      // Fallback: add to body if mobile menu button not found
-      document.body.appendChild(container);
+      // Mobile: insert before mobile menu button
+      const mobileMenuButton = document.querySelector('.mobile-menu-button');
+      if (mobileMenuButton && mobileMenuButton.parentNode) {
+        mobileMenuButton.parentNode.insertBefore(container, mobileMenuButton);
+      } else {
+        document.body.appendChild(container);
+      }
     }
+    
+    // Handle window resize to reposition if needed
+    window.addEventListener('resize', () => {
+      const newIsDesktop = window.innerWidth > 768;
+      if (newIsDesktop !== isDesktop) {
+        // Remove current container
+        if (container.parentNode) {
+          container.parentNode.removeChild(container);
+        }
+        
+        // Re-add in correct position
+        if (newIsDesktop) {
+          const navLinks = document.querySelector('.nav-links');
+          if (navLinks) {
+            navLinks.appendChild(container);
+          }
+        } else {
+          const mobileMenuButton = document.querySelector('.mobile-menu-button');
+          if (mobileMenuButton && mobileMenuButton.parentNode) {
+            mobileMenuButton.parentNode.insertBefore(container, mobileMenuButton);
+          }
+        }
+      }
+    });
   }
 }
 
