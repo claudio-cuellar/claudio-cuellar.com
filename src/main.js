@@ -53,6 +53,13 @@ class SPARouter {
       this.updateActiveNav(hash);
       this.currentSection = hash;
     }
+    
+    // Track page views
+    const currentHash = window.location.hash || '#hero';
+    trackEvent('page_view', {
+        page_title: currentHash.replace('#', ''),
+        page_location: window.location.href
+    });
   }
 
   showSection(targetId) {
@@ -163,4 +170,32 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+});
+
+// Google Analytics event tracking
+function trackEvent(eventName, parameters = {}) {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', eventName, parameters);
+    }
+}
+
+// Track CTA clicks
+document.addEventListener('DOMContentLoaded', () => {
+    // Track contact button clicks
+    document.querySelectorAll('a[href="#contact"]').forEach(button => {
+        button.addEventListener('click', () => {
+            trackEvent('contact_click', {
+                button_location: 'cta_button'
+            });
+        });
+    });
+    
+    // Track project views
+    document.querySelectorAll('a[href="#projects"]').forEach(button => {
+        button.addEventListener('click', () => {
+            trackEvent('projects_view', {
+                source: 'navigation'
+            });
+        });
+    });
 });

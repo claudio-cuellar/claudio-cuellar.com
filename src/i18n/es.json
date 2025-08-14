@@ -63,7 +63,13 @@
     "submitButton": "Enviar Mensaje"
   },
   "footer": {
-    "copyright": "© 2025 Claudio Cuellar. Todos los derechos reservados."
+    "copyright": "© 2025 Claudio Cuellar. Todos los derechos reservados.",
+    "privacy": {
+      "title": "Aviso de Privacidad",
+      "description": "Este sitio web utiliza Google Analytics para analizar el tráfico y mejorar la experiencia del usuario. Recopilamos datos anónimos sobre tu visita, incluyendo las páginas vistas y el tiempo pasado en el sitio. No se almacena ni comparte información personal con terceros.",
+      "googlePolicy": "Política de Privacidad de Google",
+      "optOut": "Desactivar Analytics"
+    }
   },
   "languageSelector": {
     "language": "Idioma",
