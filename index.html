@@ -40,509 +40,528 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         
-        // Only track in production
-        if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
-            gtag('config', 'G-5YP3MMRNWF');
+        // Analytics will be enabled/disabled based on user consent
+        // Default to disabled until user accepts
+        window['ga-disable-G-5YP3MMRNWF'] = true;
+        
+        // Check if user has already accepted analytics
+        if (localStorage.getItem('analytics-choice') === 'accepted') {
+            // Only track in production
+            if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+                window['ga-disable-G-5YP3MMRNWF'] = false;
+                gtag('config', 'G-5YP3MMRNWF');
+            }
         }
     </script>
 </head>
 
 <body class="bg-gray-900 text-white font-sans">
+  <!-- Analytics Consent Banner -->
+  <div id="analytics-banner" class="analytics-banner">
+    <div class="analytics-banner-content">
+      <p id="analytics-banner-text">This website uses Google Analytics to improve user experience.</p>
+      <div class="analytics-banner-buttons">
+        <button id="analytics-accept" class="analytics-btn analytics-btn-accept">Accept</button>
+        <button id="analytics-decline" class="analytics-btn analytics-btn-decline">Decline</button>
+      </div>
+    </div>
+    <button id="analytics-close" class="analytics-banner-close" aria-label="Close">&times;</button>
+  </div>
+  
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 w-full bg-gray-900 bg-opacity-90 z-50 shadow-lg">
+    <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+      <h1 class="text-yellow-400 font-bold text-xl">Claudio Cuellar</h1>
+      
+      <!-- Mobile menu button -->
+      <div class="mobile-menu-button p-2 rounded hover:bg-gray-800 transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </div>
+      
+      <!-- Navigation links -->
+      <ul class="nav-links">
+        <li class="m-auto px-3 "><a href="#hero" class="hover:text-yellow-400 transition" data-i18n="nav.home">Home</a></li>
+        <li class="m-auto px-3"><a href="#about" class="hover:text-yellow-400 transition" data-i18n="nav.about">About</a></li>
+        <li class="m-auto px-3"><a href="#projects" class="hover:text-yellow-400 transition" data-i18n="nav.projects">Projects</a></li>
+        <li class="m-auto px-3"><a href="#skills" class="hover:text-yellow-400 transition" data-i18n="nav.skills">Skills</a></li>
+        <li class="m-auto px-3"><a href="#cv" class="hover:text-yellow-400 transition" data-i18n="nav.cv">CV</a></li>
+        <li class="m-auto px-3"><a href="#contact" class="hover:text-yellow-400 transition" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <!-- Navbar -->
-    <nav class="fixed top-0 left-0 w-full bg-gray-900 bg-opacity-90 z-50 shadow-lg">
-        <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
-            <h1 class="text-yellow-400 font-bold text-xl">Claudio Cuellar</h1>
-            
-            <!-- Mobile menu button -->
-            <div class="mobile-menu-button p-2 rounded hover:bg-gray-800 transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
+  <!-- Hero -->
+  <section id="hero" class="h-screen flex flex-col justify-center items-center text-center px-4">
+    <h2
+        class="text-5xl md:text-7xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-200 fade-in" data-i18n="hero.greeting">
+        Hi, I'm Claudio</h2>
+    <p class="mt-4 text-lg text-gray-300 fade-in" data-i18n="hero.subtitle">Frontend & Backend Developer | Turning ideas into reality</p>
+    <a href="#projects"
+        class="mt-8 px-6 py-3 bg-yellow-400 text-gray-900 font-semibold rounded-full hover:bg-yellow-300 transition fade-in" data-i18n="hero.cta">View
+        My Work</a>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="min-h-screen py-24 px-6 bg-gray-900">
+    <div class="max-w-6xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-16 fade-in">
+          <h3 class="text-4xl md:text-5xl font-bold text-yellow-400 mb-4" data-i18n="about.title">About Me</h3>
+          <div class="w-24 h-1 bg-yellow-400 mx-auto mb-8"></div>
+          <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed" data-i18n="about.subtitle"></p>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="grid lg:grid-cols-2 gap-16">
+          <!-- Image Section -->
+          <div class="fade-in">
+            <div class="relative">
+              <div class="absolute inset-0 bg-yellow-400 rounded-2xl transform rotate-3 opacity-20"></div>
+              <img src="./src/assets/about_me.jpg" 
+                   alt="Claudio Cuellar - Software Developer" 
+                   class="relative rounded-2xl shadow-2xl w-full max-w-lg mx-auto" 
+                   loading="lazy" 
+                   decoding="async">
             </div>
-            
-            <!-- Navigation links -->
-            <ul class="nav-links">
-                <li class="m-auto px-3 "><a href="#hero" class="hover:text-yellow-400 transition" data-i18n="nav.home">Home</a></li>
-                <li class="m-auto px-3"><a href="#about" class="hover:text-yellow-400 transition" data-i18n="nav.about">About</a></li>
-                <li class="m-auto px-3"><a href="#projects" class="hover:text-yellow-400 transition" data-i18n="nav.projects">Projects</a></li>
-                <li class="m-auto px-3"><a href="#skills" class="hover:text-yellow-400 transition" data-i18n="nav.skills">Skills</a></li>
-                <li class="m-auto px-3"><a href="#cv" class="hover:text-yellow-400 transition" data-i18n="nav.cv">CV</a></li>
-                <li class="m-auto px-3"><a href="#contact" class="hover:text-yellow-400 transition" data-i18n="nav.contact">Contact</a></li>
+          </div>
+
+          <!-- Content Section -->
+          <div class="fade-in space-y-8">
+            <!-- Main Description -->
+            <div class="bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-700">
+              <h4 class="text-2xl font-semibold text-yellow-300 mb-4">My Journey</h4>
+              <p class="text-gray-300 leading-relaxed mb-6" data-i18n="about.description">
+                I'm a passionate developer who loves building creative, functional, and user-friendly applications. 
+                With a background in full-stack development, I specialize in delivering solutions that merge clean design with efficient code.
+              </p>
+              <p class="text-gray-300 leading-relaxed">
+                With over 10 years of experience, I've had the privilege of working on diverse projects ranging from 
+                legacy system migrations to modern cloud-native applications, always focusing on creating meaningful 
+                digital experiences.
+              </p>
+            </div>
+
+            <!-- Key Highlights -->
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-700 hover:border-yellow-400 transition-colors">
+                <div class="text-yellow-400 text-3xl mb-3">🚀</div>
+                <h5 class="text-lg font-semibold text-white mb-2">Innovation Driven</h5>
+                <p class="text-gray-400 text-sm">Always exploring new technologies and methodologies to deliver cutting-edge solutions</p>
+              </div>
+              <div class="bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-700 hover:border-yellow-400 transition-colors">
+                <div class="text-yellow-400 text-3xl mb-3">🎯</div>
+                <h5 class="text-lg font-semibold text-white mb-2">Results Focused</h5>
+                <p class="text-gray-400 text-sm">Committed to delivering high-quality solutions that exceed expectations and drive business value</p>
+              </div>
+              <div class="bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-700 hover:border-yellow-400 transition-colors">
+                <div class="text-yellow-400 text-3xl mb-3">🤝</div>
+                <h5 class="text-lg font-semibold text-white mb-2">Collaborative</h5>
+                <p class="text-gray-400 text-sm">Strong believer in teamwork and agile methodologies to achieve common goals</p>
+              </div>
+              <div class="bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-700 hover:border-yellow-400 transition-colors">
+                <div class="text-yellow-400 text-3xl mb-3">📚</div>
+                <h5 class="text-lg font-semibold text-white mb-2">Continuous Learning</h5>
+                <p class="text-gray-400 text-sm">Passionate about staying current with industry trends and best practices</p>
+              </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="text-center pt-6">
+              <a href="#contact" 
+                   class="inline-flex items-center px-8 py-3 bg-yellow-400 text-gray-900 font-semibold rounded-full hover:bg-yellow-300 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                    <span>Let's Work Together</span>
+                    <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
+            </div>
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="min-h-screen py-24 px-6">
+    <h3 class="text-3xl font-bold text-yellow-400 mb-12 text-center fade-in" data-i18n="projects.title">Projects</h3>
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition fade-in">
+        <img src="https://via.placeholder.com/400x250" alt="Project 1">
+        <div class="p-4">
+          <h4 class="font-bold text-xl" data-i18n="projects.project1.title">Project One</h4>
+          <p class="text-gray-400" data-i18n="projects.project1.description">Short description of the project goes here.</p>
+        </div>
+      </div>
+      <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition fade-in">
+        <img src="https://via.placeholder.com/400x250" alt="Project 2">
+        <div class="p-4">
+          <h4 class="font-bold text-xl" data-i18n="projects.project2.title">Project Two</h4>
+          <p class="text-gray-400" data-i18n="projects.project2.description">Short description of the project goes here.</p>
+        </div>
+      </div>
+      <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition fade-in">
+        <img src="https://via.placeholder.com/400x250" alt="Project 3">
+        <div class="p-4">
+          <h4 class="font-bold text-xl" data-i18n="projects.project3.title">Project Three</h4>
+          <p class="text-gray-400" data-i18n="projects.project3.description">Short description of the project goes here.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="min-h-screen py-24 px-6 bg-gray-800">
+    <h3 class="text-3xl font-bold text-yellow-400 mb-12 text-center fade-in" data-i18n="skills.title">Skills</h3>
+    
+    <!-- Core Frontend -->
+    <div class="mb-12">
+      <h4 class="text-xl font-semibold text-yellow-300 mb-6 text-center">Core Frontend</h4>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+        <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
+          <span class="text-5xl mb-3 block">🅰️</span>
+          <p class="text-white font-medium">Angular</p>
+        </div>
+        <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
+          <span class="text-5xl mb-3 block">📘</span>
+          <p class="text-white font-medium">TypeScript</p>
+        </div>
+        <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
+          <span class="text-5xl mb-3 block">🟨</span>
+          <p class="text-white font-medium">JavaScript</p>
+        </div>
+        <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
+          <span class="text-5xl mb-3 block">⚛️</span>
+          <p class="text-white font-medium">React</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Styling & Markup -->
+    <div class="mb-12">
+      <h4 class="text-xl font-semibold text-yellow-300 mb-6 text-center">Styling & Markup</h4>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+        <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
+          <span class="text-5xl mb-3 block">🎨</span>
+          <p class="text-white font-medium">Tailwind CSS</p>
+        </div>
+        <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
+          <span class="text-5xl mb-3 block">🌐</span>
+          <p class="text-white font-medium">HTML5</p>
+        </div>
+        <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
+          <span class="text-5xl mb-3 block">🎭</span>
+          <p class="text-white font-medium">CSS3</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Backend Languages -->
+    <div class="mb-12">
+      <h4 class="text-xl font-semibold text-yellow-300 mb-6 text-center">Backend Languages</h4>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+        <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
+          <span class="text-5xl mb-3 block">🔷</span>
+          <p class="text-white font-medium">C#</p>
+        </div>
+        <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
+          <span class="text-5xl mb-3 block">🐍</span>
+          <p class="text-white font-medium">Python</p>
+        </div>
+        <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
+          <span class="text-5xl mb-3 block">☕</span>
+          <p class="text-white font-medium">Java</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Backend Frameworks -->
+    <div class="mb-12">
+      <h4 class="text-xl font-semibold text-yellow-300 mb-6 text-center">Backend Frameworks</h4>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+        <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
+          <span class="text-5xl mb-3 block">🌐</span>
+          <p class="text-white font-medium">.NET Core</p>
+        </div>
+        <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
+          <span class="text-5xl mb-3 block">🔗</span>
+          <p class="text-white font-medium">REST APIs</p>
+        </div>
+        <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
+          <span class="text-5xl mb-3 block">🟢</span>
+          <p class="text-white font-medium">Node.js</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Databases -->
+    <div class="mb-12">
+      <h4 class="text-xl font-semibold text-yellow-300 mb-6 text-center">Databases</h4>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+        <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
+          <span class="text-5xl mb-3 block">🗄️</span>
+          <p class="text-white font-medium">SQL Server</p>
+        </div>
+        <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
+          <span class="text-5xl mb-3 block">🐘</span>
+          <p class="text-white font-medium">PostgreSQL</p>
+        </div>
+        <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
+          <span class="text-5xl mb-3 block">🍃</span>
+          <p class="text-white font-medium">MongoDB</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Cloud Platforms -->
+    <div class="mb-12">
+      <h4 class="text-xl font-semibold text-yellow-300 mb-6 text-center">Cloud Platforms</h4>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+        <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
+          <span class="text-5xl mb-3 block">☁️</span>
+          <p class="text-white font-medium">AWS</p>
+        </div>
+        <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
+          <span class="text-5xl mb-3 block">🔵</span>
+          <p class="text-white font-medium">Azure</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- DevOps & Tools -->
+    <div class="mb-12">
+      <h4 class="text-xl font-semibold text-yellow-300 mb-6 text-center">DevOps & Tools</h4>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+        <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
+          <span class="text-5xl mb-3 block">🐳</span>
+          <p class="text-white font-medium">Docker</p>
+        </div>
+        <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
+          <span class="text-5xl mb-3 block">🔄</span>
+          <p class="text-white font-medium">GitHub Actions</p>
+        </div>
+        <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
+          <span class="text-5xl mb-3 block">🔧</span>
+          <p class="text-white font-medium">Git</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Testing & Methodology -->
+    <div class="mb-12">
+      <h4 class="text-xl font-semibold text-yellow-300 mb-6 text-center">Testing & Methodology</h4>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+        <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
+          <span class="text-5xl mb-3 block">🌲</span>
+          <p class="text-white font-medium">Cypress</p>
+        </div>
+        <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
+          <span class="text-5xl mb-3 block">🧪</span>
+          <p class="text-white font-medium">Jasmine</p>
+        </div>
+        <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
+          <span class="text-5xl mb-3 block">🏃‍♂️</span>
+          <p class="text-white font-medium">Agile/Scrum</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CV -->
+  <section id="cv" class="min-h-screen py-24 px-6">
+    <h3 class="text-3xl font-bold text-yellow-400 mb-12 text-center fade-in" data-i18n="cv.title">Curriculum Vitae</h3>
+    <div class="max-w-4xl mx-auto bg-gray-800 rounded-xl p-8 shadow-lg fade-in">
+      <!-- CV Header -->
+      <div class="text-center mb-8">
+        <h4 class="text-4xl font-bold text-white mb-4">Claudio Cuellar</h4>
+        <div class="flex flex-wrap justify-center gap-4 text-gray-300">
+          <span>📍 Bolivia</span>
+          <span>📧 claudio.cuellar@gmail.com</span>
+          <span>📱 +591 77502002</span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-4 mt-2 text-gray-300">
+          <a href="https://claudio-cuellar.com" class="hover:text-yellow-400 transition">🌐 claudio-cuellar.com</a>
+          <a href="https://linkedin.com/in/claudiocuellar" class="hover:text-yellow-400 transition">💼 LinkedIn</a>
+          <a href="https://github.com/claudio-cuellar" class="hover:text-yellow-400 transition">🖥 GitHub</a>
+        </div>
+      </div>
+
+      <!-- Professional Summary -->
+      <div class="mb-8">
+        <h5 class="text-2xl font-bold text-yellow-400 mb-4" data-i18n="cv.summary.title">Professional Summary</h5>
+        <p class="text-gray-300" data-i18n="cv.summary.description">Full-Stack Developer with 10 years of experience building high-performance web and cloud applications. Skilled in Angular (2–20), Javascript, Typescript, Tailwind CSS. Proven track record migrating legacy systems to modern architectures, optimizing performance, and delivering scalable solutions.</p>
+      </div>
+
+      <!-- Technical Skills -->
+      <div class="mb-8">
+        <h5 class="text-2xl font-bold text-yellow-400 mb-4" data-i18n="cv.skills.title">Technical Skills</h5>
+        <div class="grid md:grid-cols-2 gap-4 text-gray-300">
+          <div>
+            <strong class="text-white">Frontend:</strong> Angular, TypeScript, Tailwind CSS, HTML5, CSS3, JavaScript (ES6+), React
+          </div>
+          <div>
+            <strong class="text-white">Backend:</strong> C#, .NET Core, REST APIs, Python, Node.js, Java
+          </div>
+          <div>
+            <strong class="text-white">Databases:</strong> SQL Server, PostgreSQL, MongoDB
+          </div>
+          <div>
+            <strong class="text-white">Cloud & DevOps:</strong> AWS (S3, EC2, SES), Azure, Docker, GitHub Actions
+          </div>
+        </div>
+      </div>
+
+      <!-- Professional Experience -->
+      <div class="mb-8">
+        <h5 class="text-2xl font-bold text-yellow-400 mb-4" data-i18n="cv.experience.title">Professional Experience</h5>
+        <div class="space-y-6">
+          <!-- Frontend Developer - Intertec Retail -->
+          <div>
+            <h6 class="text-xl font-semibold text-white">Frontend Developer</h6>
+            <p class="text-yellow-300 font-medium">Intertec - Retail Application</p>
+            <p class="text-gray-400 mb-2">Intertec International — Remote | 01/2019 – 01/2025</p>
+            <ul class="text-gray-300 space-y-1 list-disc list-inside">
+              <li>Led comprehensive Angular migrations from versions 2→8, 5→8, and 8→15 across multiple libraries and applications, ensuring compatibility and improved performance</li>
+              <li>Developed comprehensive testing strategies using Jasmine, Karma, and Jest for unit testing, achieving high code coverage and reliability</li>
+              <li>Implemented end-to-end testing solutions using Cypress and Selenium, automating critical user workflows and reducing manual testing time by 60%</li>
+              <li>Built responsive web components using Angular, React, and Vue.js for cross-framework compatibility, enabling seamless integration across different client applications</li>
+              <li>Added new features, debugged complex issues, and maintained codebases for multiple libraries and applications while ensuring responsive design principles</li>
             </ul>
-        </div>
-    </nav>
-
-    <!-- Hero -->
-    <section id="hero" class="h-screen flex flex-col justify-center items-center text-center px-4">
-        <h2
-            class="text-5xl md:text-7xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-200 fade-in" data-i18n="hero.greeting">
-            Hi, I'm Claudio</h2>
-        <p class="mt-4 text-lg text-gray-300 fade-in" data-i18n="hero.subtitle">Frontend & Backend Developer | Turning ideas into reality</p>
-        <a href="#projects"
-            class="mt-8 px-6 py-3 bg-yellow-400 text-gray-900 font-semibold rounded-full hover:bg-yellow-300 transition fade-in" data-i18n="hero.cta">View
-            My Work</a>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="min-h-screen py-24 px-6 bg-gray-900">
-        <div class="max-w-6xl mx-auto">
-            <!-- Section Header -->
-            <div class="text-center mb-16 fade-in">
-                <h3 class="text-4xl md:text-5xl font-bold text-yellow-400 mb-4" data-i18n="about.title">About Me</h3>
-                <div class="w-24 h-1 bg-yellow-400 mx-auto mb-8"></div>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed" data-i18n="about.subtitle"></p>
-            </div>
-
-            <!-- Main Content Grid -->
-            <div class="grid lg:grid-cols-2 gap-16">
-                <!-- Image Section -->
-                <div class="fade-in">
-                    <div class="relative">
-                        <div class="absolute inset-0 bg-yellow-400 rounded-2xl transform rotate-3 opacity-20"></div>
-                        <img src="./src/assets/about_me.jpg" 
-                             alt="Claudio Cuellar - Software Developer" 
-                             class="relative rounded-2xl shadow-2xl w-full max-w-lg mx-auto" 
-                             loading="lazy" 
-                             decoding="async">
-                    </div>
-                </div>
-
-                <!-- Content Section -->
-                <div class="fade-in space-y-8">
-                    <!-- Main Description -->
-                    <div class="bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-700">
-                        <h4 class="text-2xl font-semibold text-yellow-300 mb-4">My Journey</h4>
-                        <p class="text-gray-300 leading-relaxed mb-6" data-i18n="about.description">
-                            I'm a passionate developer who loves building creative, functional, and user-friendly applications. 
-                            With a background in full-stack development, I specialize in delivering solutions that merge clean design with efficient code.
-                        </p>
-                        <p class="text-gray-300 leading-relaxed">
-                            With over 10 years of experience, I've had the privilege of working on diverse projects ranging from 
-                            legacy system migrations to modern cloud-native applications, always focusing on creating meaningful 
-                            digital experiences.
-                        </p>
-                    </div>
-
-                    <!-- Key Highlights -->
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-700 hover:border-yellow-400 transition-colors">
-                            <div class="text-yellow-400 text-3xl mb-3">🚀</div>
-                            <h5 class="text-lg font-semibold text-white mb-2">Innovation Driven</h5>
-                            <p class="text-gray-400 text-sm">Always exploring new technologies and methodologies to deliver cutting-edge solutions</p>
-                        </div>
-                        <div class="bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-700 hover:border-yellow-400 transition-colors">
-                            <div class="text-yellow-400 text-3xl mb-3">🎯</div>
-                            <h5 class="text-lg font-semibold text-white mb-2">Results Focused</h5>
-                            <p class="text-gray-400 text-sm">Committed to delivering high-quality solutions that exceed expectations and drive business value</p>
-                        </div>
-                        <div class="bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-700 hover:border-yellow-400 transition-colors">
-                            <div class="text-yellow-400 text-3xl mb-3">🤝</div>
-                            <h5 class="text-lg font-semibold text-white mb-2">Collaborative</h5>
-                            <p class="text-gray-400 text-sm">Strong believer in teamwork and agile methodologies to achieve common goals</p>
-                        </div>
-                        <div class="bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-700 hover:border-yellow-400 transition-colors">
-                            <div class="text-yellow-400 text-3xl mb-3">📚</div>
-                            <h5 class="text-lg font-semibold text-white mb-2">Continuous Learning</h5>
-                            <p class="text-gray-400 text-sm">Passionate about staying current with industry trends and best practices</p>
-                        </div>
-                    </div>
-
-                    <!-- Call to Action -->
-                    <div class="text-center pt-6">
-                        <a href="#contact" 
-                           class="inline-flex items-center px-8 py-3 bg-yellow-400 text-gray-900 font-semibold rounded-full hover:bg-yellow-300 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                            <span>Let's Work Together</span>
-                            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" class="min-h-screen py-24 px-6">
-        <h3 class="text-3xl font-bold text-yellow-400 mb-12 text-center fade-in" data-i18n="projects.title">Projects</h3>
-        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition fade-in">
-                <img src="https://via.placeholder.com/400x250" alt="Project 1">
-                <div class="p-4">
-                    <h4 class="font-bold text-xl" data-i18n="projects.project1.title">Project One</h4>
-                    <p class="text-gray-400" data-i18n="projects.project1.description">Short description of the project goes here.</p>
-                </div>
-            </div>
-            <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition fade-in">
-                <img src="https://via.placeholder.com/400x250" alt="Project 2">
-                <div class="p-4">
-                    <h4 class="font-bold text-xl" data-i18n="projects.project2.title">Project Two</h4>
-                    <p class="text-gray-400" data-i18n="projects.project2.description">Short description of the project goes here.</p>
-                </div>
-            </div>
-            <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition fade-in">
-                <img src="https://via.placeholder.com/400x250" alt="Project 3">
-                <div class="p-4">
-                    <h4 class="font-bold text-xl" data-i18n="projects.project3.title">Project Three</h4>
-                    <p class="text-gray-400" data-i18n="projects.project3.description">Short description of the project goes here.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills" class="min-h-screen py-24 px-6 bg-gray-800">
-        <h3 class="text-3xl font-bold text-yellow-400 mb-12 text-center fade-in" data-i18n="skills.title">Skills</h3>
-        
-        <!-- Core Frontend -->
-        <div class="mb-12">
-            <h4 class="text-xl font-semibold text-yellow-300 mb-6 text-center">Core Frontend</h4>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-                <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
-                    <span class="text-5xl mb-3 block">🅰️</span>
-                    <p class="text-white font-medium">Angular</p>
-                </div>
-                <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
-                    <span class="text-5xl mb-3 block">📘</span>
-                    <p class="text-white font-medium">TypeScript</p>
-                </div>
-                <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
-                    <span class="text-5xl mb-3 block">🟨</span>
-                    <p class="text-white font-medium">JavaScript</p>
-                </div>
-                <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
-                    <span class="text-5xl mb-3 block">⚛️</span>
-                    <p class="text-white font-medium">React</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Styling & Markup -->
-        <div class="mb-12">
-            <h4 class="text-xl font-semibold text-yellow-300 mb-6 text-center">Styling & Markup</h4>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-                <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
-                    <span class="text-5xl mb-3 block">🎨</span>
-                    <p class="text-white font-medium">Tailwind CSS</p>
-                </div>
-                <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
-                    <span class="text-5xl mb-3 block">🌐</span>
-                    <p class="text-white font-medium">HTML5</p>
-                </div>
-                <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
-                    <span class="text-5xl mb-3 block">🎭</span>
-                    <p class="text-white font-medium">CSS3</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Backend Languages -->
-        <div class="mb-12">
-            <h4 class="text-xl font-semibold text-yellow-300 mb-6 text-center">Backend Languages</h4>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-                <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
-                    <span class="text-5xl mb-3 block">🔷</span>
-                    <p class="text-white font-medium">C#</p>
-                </div>
-                <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
-                    <span class="text-5xl mb-3 block">🐍</span>
-                    <p class="text-white font-medium">Python</p>
-                </div>
-                <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
-                    <span class="text-5xl mb-3 block">☕</span>
-                    <p class="text-white font-medium">Java</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Backend Frameworks -->
-        <div class="mb-12">
-            <h4 class="text-xl font-semibold text-yellow-300 mb-6 text-center">Backend Frameworks</h4>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-                <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
-                    <span class="text-5xl mb-3 block">🌐</span>
-                    <p class="text-white font-medium">.NET Core</p>
-                </div>
-                <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
-                    <span class="text-5xl mb-3 block">🔗</span>
-                    <p class="text-white font-medium">REST APIs</p>
-                </div>
-                <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
-                    <span class="text-5xl mb-3 block">🟢</span>
-                    <p class="text-white font-medium">Node.js</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Databases -->
-        <div class="mb-12">
-            <h4 class="text-xl font-semibold text-yellow-300 mb-6 text-center">Databases</h4>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-                <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
-                    <span class="text-5xl mb-3 block">🗄️</span>
-                    <p class="text-white font-medium">SQL Server</p>
-                </div>
-                <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
-                    <span class="text-5xl mb-3 block">🐘</span>
-                    <p class="text-white font-medium">PostgreSQL</p>
-                </div>
-                <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
-                    <span class="text-5xl mb-3 block">🍃</span>
-                    <p class="text-white font-medium">MongoDB</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Cloud Platforms -->
-        <div class="mb-12">
-            <h4 class="text-xl font-semibold text-yellow-300 mb-6 text-center">Cloud Platforms</h4>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-                <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
-                    <span class="text-5xl mb-3 block">☁️</span>
-                    <p class="text-white font-medium">AWS</p>
-                </div>
-                <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
-                    <span class="text-5xl mb-3 block">🔵</span>
-                    <p class="text-white font-medium">Azure</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- DevOps & Tools -->
-        <div class="mb-12">
-            <h4 class="text-xl font-semibold text-yellow-300 mb-6 text-center">DevOps & Tools</h4>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-                <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
-                    <span class="text-5xl mb-3 block">🐳</span>
-                    <p class="text-white font-medium">Docker</p>
-                </div>
-                <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
-                    <span class="text-5xl mb-3 block">🔄</span>
-                    <p class="text-white font-medium">GitHub Actions</p>
-                </div>
-                <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
-                    <span class="text-5xl mb-3 block">🔧</span>
-                    <p class="text-white font-medium">Git</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Testing & Methodology -->
-        <div class="mb-12">
-            <h4 class="text-xl font-semibold text-yellow-300 mb-6 text-center">Testing & Methodology</h4>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-                <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
-                    <span class="text-5xl mb-3 block">🌲</span>
-                    <p class="text-white font-medium">Cypress</p>
-                </div>
-                <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
-                    <span class="text-5xl mb-3 block">🧪</span>
-                    <p class="text-white font-medium">Jasmine</p>
-                </div>
-                <div class="bg-gray-700 rounded-lg p-6 text-center shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 fade-in">
-                    <span class="text-5xl mb-3 block">🏃‍♂️</span>
-                    <p class="text-white font-medium">Agile/Scrum</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CV -->
-    <section id="cv" class="min-h-screen py-24 px-6">
-        <h3 class="text-3xl font-bold text-yellow-400 mb-12 text-center fade-in" data-i18n="cv.title">Curriculum Vitae</h3>
-        <div class="max-w-4xl mx-auto bg-gray-800 rounded-xl p-8 shadow-lg fade-in">
-            <!-- CV Header -->
-            <div class="text-center mb-8">
-                <h4 class="text-4xl font-bold text-white mb-4">Claudio Cuellar</h4>
-                <div class="flex flex-wrap justify-center gap-4 text-gray-300">
-                    <span>📍 Bolivia</span>
-                    <span>📧 claudio.cuellar@gmail.com</span>
-                    <span>📱 +591 77502002</span>
-                </div>
-                <div class="flex flex-wrap justify-center gap-4 mt-2 text-gray-300">
-                    <a href="https://claudio-cuellar.com" class="hover:text-yellow-400 transition">🌐 claudio-cuellar.com</a>
-                    <a href="https://linkedin.com/in/claudiocuellar" class="hover:text-yellow-400 transition">💼 LinkedIn</a>
-                    <a href="https://github.com/claudio-cuellar" class="hover:text-yellow-400 transition">🖥 GitHub</a>
-                </div>
-            </div>
-
-            <!-- Professional Summary -->
-            <div class="mb-8">
-                <h5 class="text-2xl font-bold text-yellow-400 mb-4" data-i18n="cv.summary.title">Professional Summary</h5>
-                <p class="text-gray-300" data-i18n="cv.summary.description">Full-Stack Developer with 10 years of experience building high-performance web and cloud applications. Skilled in Angular (2–20), Javascript, Typescript, Tailwind CSS. Proven track record migrating legacy systems to modern architectures, optimizing performance, and delivering scalable solutions.</p>
-            </div>
-
-            <!-- Technical Skills -->
-            <div class="mb-8">
-                <h5 class="text-2xl font-bold text-yellow-400 mb-4" data-i18n="cv.skills.title">Technical Skills</h5>
-                <div class="grid md:grid-cols-2 gap-4 text-gray-300">
-                    <div>
-                        <strong class="text-white">Frontend:</strong> Angular, TypeScript, Tailwind CSS, HTML5, CSS3, JavaScript (ES6+), React
-                    </div>
-                    <div>
-                        <strong class="text-white">Backend:</strong> C#, .NET Core, REST APIs, Python, Node.js, Java
-                    </div>
-                    <div>
-                        <strong class="text-white">Databases:</strong> SQL Server, PostgreSQL, MongoDB
-                    </div>
-                    <div>
-                        <strong class="text-white">Cloud & DevOps:</strong> AWS (S3, EC2, SES), Azure, Docker, GitHub Actions
-                    </div>
-                </div>
-            </div>
-
-            <!-- Professional Experience -->
-            <div class="mb-8">
-                <h5 class="text-2xl font-bold text-yellow-400 mb-4" data-i18n="cv.experience.title">Professional Experience</h5>
-                <div class="space-y-6">
-                    <!-- Frontend Developer - Intertec Retail -->
-                    <div>
-                        <h6 class="text-xl font-semibold text-white">Frontend Developer</h6>
-                        <p class="text-yellow-300 font-medium">Intertec - Retail Application</p>
-                        <p class="text-gray-400 mb-2">Intertec International — Remote | 01/2019 – 01/2025</p>
-                        <ul class="text-gray-300 space-y-1 list-disc list-inside">
-                            <li>Led comprehensive Angular migrations from versions 2→8, 5→8, and 8→15 across multiple libraries and applications, ensuring compatibility and improved performance</li>
-                            <li>Developed comprehensive testing strategies using Jasmine, Karma, and Jest for unit testing, achieving high code coverage and reliability</li>
-                            <li>Implemented end-to-end testing solutions using Cypress and Selenium, automating critical user workflows and reducing manual testing time by 60%</li>
-                            <li>Built responsive web components using Angular, React, and Vue.js for cross-framework compatibility, enabling seamless integration across different client applications</li>
-                            <li>Added new features, debugged complex issues, and maintained codebases for multiple libraries and applications while ensuring responsive design principles</li>
-                        </ul>
-                    </div>
-                    
-                    <!-- Full-Stack Developer - Intertec ERP -->
-                    <div>
-                        <h6 class="text-xl font-semibold text-white">Full-Stack Developer</h6>
-                        <p class="text-yellow-300 font-medium">Intertec - ERP Application</p>
-                        <p class="text-gray-400 mb-2">Intertec International — Remote | 11/2018 – 02/2019</p>
-                        <ul class="text-gray-300 space-y-1 list-disc list-inside">
-                            <li>Collaborated as part of a development team to migrate a legacy Visual Basic 6.0 desktop application to a modern cloud-based AWS solution</li>
-                            <li>Developed Angular frontend components and services, creating a responsive and intuitive user interface that improved user experience by 50%</li>
-                            <li>Built robust C# backend APIs and microservices, implementing RESTful endpoints and business logic for seamless data processing</li>
-                            <li>Implemented data migration strategies and validation processes, ensuring 100% data integrity during the transition from desktop to cloud</li>
-                            <li>Collaborated with cross-functional teams using Agile methodologies, delivering the project on time and within budget</li>
-                            <li>Added unit tests using Jasmine and Karma frameworks to ensure code quality and reliability</li>
-                            <li>Added integration tests using SpecFlow for C# backend components</li>
-                        </ul>
-                    </div>
-                    
-                    <!-- Fullstack Developer - Coderoad Mojix -->
-                    <div>
-                        <h6 class="text-xl font-semibold text-white">Fullstack Developer</h6>
-                        <p class="text-yellow-300 font-medium">Coderoad - Mojix</p>
-                        <p class="text-gray-400 mb-2">Coderoad - Mojix — La Paz, Bolivia | 2010 – 2018</p>
-                        
-                        <!-- Fullstack Developer Role -->
-                        <div class="mb-3">
-                            <p class="text-white font-medium mb-1">Fullstack Developer</p>
-                            <ul class="text-gray-300 space-y-1 list-disc list-inside ml-4">
-                                <li>Migrated ERP application from Visual Basic 6 to Angular for the frontend and C# for the backend with AWS infrastructure</li>
-                                <li>Added unit tests using Jasmine and Karma frameworks to ensure code quality and reliability</li>
-                                <li>Added integration tests using SpecFlow for C# backend components</li>
-                            </ul>
-                        </div>
-                        
-                        <!-- Java Developer Role -->
-                        <div class="mb-3">
-                            <p class="text-white font-medium mb-1">Java Developer</p>
-                            <ul class="text-gray-300 space-y-1 list-disc list-inside ml-4">
-                                <li>Developed a new Java ME application using Java AWT for mobile device compatibility</li>
-                                <li>Migrated Mosquitto client from Java Standard Edition to support Java Micro Edition environments</li>
-                                <li>Built a new Java SE desktop application using Java Swing for enhanced user interface</li>
-                            </ul>
-                        </div>
-                        
-                        <!-- C++ Developer Role -->
-                        <div class="mb-3">
-                            <p class="text-white font-medium mb-1">C++ Developer</p>
-                            <ul class="text-gray-300 space-y-1 list-disc list-inside ml-4">
-                                <li>Added new features, debugged issues, and maintained existing C++ applications</li>
-                                <li>Implemented support for handling maps, loading them for display and elements positioning</li>
-                            </ul>
-                        </div>
-                        
-                        <!-- QA Engineer Role -->
-                        <div class="mb-3">
-                            <p class="text-white font-medium mb-1">QA Engineer</p>
-                            <ul class="text-gray-300 space-y-1 list-disc list-inside ml-4">
-                                <li>Analyzed product requirements, created comprehensive test cases, and developed test plans</li>
-                                <li>Executed test plans, reported bugs in Jira, and generated detailed testing reports</li>
-                            </ul>
-                        </div>
-                        
-                        <!-- Javascript Developer Role -->
-                        <div>
-                            <p class="text-white font-medium mb-1">Javascript Developer</p>
-                            <ul class="text-gray-300 space-y-1 list-disc list-inside ml-4">
-                                <li>Developed code using XSL + XML + Javascript to create form templates compiled in HTML for Electronic Data Interchange (EDI forms)</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Education -->
-            <div class="mb-8">
-                <h5 class="text-2xl font-bold text-yellow-400 mb-4" data-i18n="cv.education.title">Education</h5>
-                <div>
-                    <h6 class="text-xl font-semibold text-white">Bachelor's Degree in Computer Science</h6>
-                    <p class="text-gray-400">Universidad Mayor de San Andres — La Paz | 2026</p>
-                </div>
-            </div>
-
-            <!-- Download CV Button -->
-            <div class="text-center">
-                <a href="./cv.pdf" download class="inline-block px-6 py-3 bg-yellow-400 text-gray-900 font-semibold rounded-full hover:bg-yellow-300 transition" data-i18n="cv.download">Download PDF</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="min-h-screen flex flex-col justify-center items-center px-6">
-        <h3 class="text-3xl font-bold text-yellow-400 mb-6 fade-in" data-i18n="contact.title">Get In Touch</h3>
-        <form class="w-full max-w-md space-y-4 fade-in">
-            <input type="text" data-i18n="contact.namePlaceholder" placeholder="Your Name"
-                class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:border-yellow-400 outline-none">
-            <input type="email" data-i18n="contact.emailPlaceholder" placeholder="Your Email"
-                class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:border-yellow-400 outline-none">
-            <textarea data-i18n="contact.messagePlaceholder" placeholder="Your Message" rows="4"
-                class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:border-yellow-400 outline-none"></textarea>
-            <button type="submit" data-i18n="contact.submitButton"
-                class="w-full bg-yellow-400 text-gray-900 font-semibold py-3 rounded hover:bg-yellow-300 transition">Send
-                Message</button>
-        </form>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-8 text-center text-gray-500 text-sm bg-gray-900">
-        <div class="max-w-4xl mx-auto px-6">
-            <!-- Privacy Notice -->
-            <div class="mb-4 p-4 bg-gray-800 rounded-lg border border-gray-700">
-                <h4 class="text-yellow-400 font-semibold mb-2" data-i18n="footer.privacy.title">Privacy Notice</h4>
-                <p class="text-gray-300 text-sm leading-relaxed" data-i18n="footer.privacy.description">
-                    This website uses Google Analytics to analyze traffic and improve user experience. 
-                    We collect anonymous data about your visit, including pages viewed and time spent on the site. 
-                    No personal information is stored or shared with third parties.
-                </p>
-                <div class="mt-3 flex flex-wrap justify-center gap-4 text-xs">
-                    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" 
-                       class="text-yellow-400 hover:text-yellow-300 transition" data-i18n="footer.privacy.googlePolicy">
-                        Google Privacy Policy
-                    </a>
-                    <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" 
-                       class="text-yellow-400 hover:text-yellow-300 transition" data-i18n="footer.privacy.optOut">
-                        Opt-out of Analytics
-                    </a>
-                </div>
+          </div>
+          
+          <!-- Full-Stack Developer - Intertec ERP -->
+          <div>
+            <h6 class="text-xl font-semibold text-white">Full-Stack Developer</h6>
+            <p class="text-yellow-300 font-medium">Intertec - ERP Application</p>
+            <p class="text-gray-400 mb-2">Intertec International — Remote | 11/2018 – 02/2019</p>
+            <ul class="text-gray-300 space-y-1 list-disc list-inside">
+              <li>Collaborated as part of a development team to migrate a legacy Visual Basic 6.0 desktop application to a modern cloud-based AWS solution</li>
+              <li>Developed Angular frontend components and services, creating a responsive and intuitive user interface that improved user experience by 50%</li>
+              <li>Built robust C# backend APIs and microservices, implementing RESTful endpoints and business logic for seamless data processing</li>
+              <li>Implemented data migration strategies and validation processes, ensuring 100% data integrity during the transition from desktop to cloud</li>
+              <li>Collaborated with cross-functional teams using Agile methodologies, delivering the project on time and within budget</li>
+              <li>Added unit tests using Jasmine and Karma frameworks to ensure code quality and reliability</li>
+              <li>Added integration tests using SpecFlow for C# backend components</li>
+            </ul>
+          </div>
+          
+          <!-- Fullstack Developer - Coderoad Mojix -->
+          <div>
+            <h6 class="text-xl font-semibold text-white">Fullstack Developer</h6>
+            <p class="text-yellow-300 font-medium">Coderoad - Mojix</p>
+            <p class="text-gray-400 mb-2">Coderoad - Mojix — La Paz, Bolivia | 2010 – 2018</p>
+            
+            <!-- Fullstack Developer Role -->
+            <div class="mb-3">
+              <p class="text-white font-medium mb-1">Fullstack Developer</p>
+              <ul class="text-gray-300 space-y-1 list-disc list-inside ml-4">
+                <li>Migrated ERP application from Visual Basic 6 to Angular for the frontend and C# for the backend with AWS infrastructure</li>
+                <li>Added unit tests using Jasmine and Karma frameworks to ensure code quality and reliability</li>
+                <li>Added integration tests using SpecFlow for C# backend components</li>
+              </ul>
             </div>
             
-            <!-- Copyright -->
-            <p data-i18n="footer.copyright">© 2025 Claudio Cuellar. All rights reserved.</p>
+            <!-- Java Developer Role -->
+            <div class="mb-3">
+              <p class="text-white font-medium mb-1">Java Developer</p>
+              <ul class="text-gray-300 space-y-1 list-disc list-inside ml-4">
+                <li>Developed a new Java ME application using Java AWT for mobile device compatibility</li>
+                <li>Migrated Mosquitto client from Java Standard Edition to support Java Micro Edition environments</li>
+                <li>Built a new Java SE desktop application using Java Swing for enhanced user interface</li>
+              </ul>
+            </div>
+            
+            <!-- C++ Developer Role -->
+            <div class="mb-3">
+              <p class="text-white font-medium mb-1">C++ Developer</p>
+              <ul class="text-gray-300 space-y-1 list-disc list-inside ml-4">
+                <li>Added new features, debugged issues, and maintained existing C++ applications</li>
+                <li>Implemented support for handling maps, loading them for display and elements positioning</li>
+              </ul>
+            </div>
+            
+            <!-- QA Engineer Role -->
+            <div class="mb-3">
+              <p class="text-white font-medium mb-1">QA Engineer</p>
+              <ul class="text-gray-300 space-y-1 list-disc list-inside ml-4">
+                <li>Analyzed product requirements, created comprehensive test cases, and developed test plans</li>
+                <li>Executed test plans, reported bugs in Jira, and generated detailed testing reports</li>
+              </ul>
+            </div>
+            
+            <!-- Javascript Developer Role -->
+            <div>
+              <p class="text-white font-medium mb-1">Javascript Developer</p>
+              <ul class="text-gray-300 space-y-1 list-disc list-inside ml-4">
+                <li>Developed code using XSL + XML + Javascript to create form templates compiled in HTML for Electronic Data Interchange (EDI forms)</li>
+              </ul>
+            </div>
+          </div>
         </div>
-    </footer>
+      </div>
 
-    <!-- Scripts -->
-    <!-- JavaScript is loaded from main.js -->
+      <!-- Education -->
+      <div class="mb-8">
+        <h5 class="text-2xl font-bold text-yellow-400 mb-4" data-i18n="cv.education.title">Education</h5>
+        <div>
+          <h6 class="text-xl font-semibold text-white">Bachelor's Degree in Computer Science</h6>
+          <p class="text-gray-400">Universidad Mayor de San Andres — La Paz | 2026</p>
+        </div>
+      </div>
+
+      <!-- Download CV Button -->
+      <div class="text-center">
+        <a href="./cv.pdf" download class="inline-block px-6 py-3 bg-yellow-400 text-gray-900 font-semibold rounded-full hover:bg-yellow-300 transition" data-i18n="cv.download">Download PDF</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="min-h-screen flex flex-col justify-center items-center px-6">
+    <h3 class="text-3xl font-bold text-yellow-400 mb-6 fade-in" data-i18n="contact.title">Get In Touch</h3>
+    <form class="w-full max-w-md space-y-4 fade-in">
+      <input type="text" data-i18n="contact.namePlaceholder" placeholder="Your Name"
+        class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:border-yellow-400 outline-none">
+      <input type="email" data-i18n="contact.emailPlaceholder" placeholder="Your Email"
+        class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:border-yellow-400 outline-none">
+      <textarea data-i18n="contact.messagePlaceholder" placeholder="Your Message" rows="4"
+        class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:border-yellow-400 outline-none"></textarea>
+      <button type="submit" data-i18n="contact.submitButton"
+        class="w-full bg-yellow-400 text-gray-900 font-semibold py-3 rounded hover:bg-yellow-300 transition">Send
+        Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 text-center text-gray-500 text-sm bg-gray-900">
+    <div class="max-w-4xl mx-auto px-6">
+      <!-- Privacy Notice -->
+      <div class="mb-4 p-4 bg-gray-800 rounded-lg border border-gray-700">
+        <h4 class="text-yellow-400 font-semibold mb-2" data-i18n="footer.privacy.title">Privacy Notice</h4>
+        <p class="text-gray-300 text-sm leading-relaxed" data-i18n="footer.privacy.description">
+          This website uses Google Analytics to analyze traffic and improve user experience. 
+          We collect anonymous data about your visit, including pages viewed and time spent on the site. 
+          No personal information is stored or shared with third parties.
+        </p>
+        <div class="mt-3 flex flex-wrap justify-center gap-4 text-xs">
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" 
+             class="text-yellow-400 hover:text-yellow-300 transition" data-i18n="footer.privacy.googlePolicy">
+              Google Privacy Policy
+          </a>
+          <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" 
+             class="text-yellow-400 hover:text-yellow-300 transition" data-i18n="footer.privacy.optOut">
+              Opt-out of Analytics
+          </a>
+        </div>
+      </div>
+      
+      <!-- Copyright -->
+      <p data-i18n="footer.copyright">© 2025 Claudio Cuellar. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <!-- JavaScript is loaded from main.js -->
 </body>
 
 </html>

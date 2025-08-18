@@ -199,3 +199,72 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// Google Analytics Banner
+document.addEventListener('DOMContentLoaded', () => {
+  const analyticsBanner = document.getElementById('analytics-banner');
+  const acceptButton = document.getElementById('analytics-accept');
+  const declineButton = document.getElementById('analytics-decline');
+  const closeButton = document.getElementById('analytics-close');
+  const bannerText = document.getElementById('analytics-banner-text');
+  
+  // Check if user has already made a choice
+  const analyticsChoice = localStorage.getItem('analytics-choice');
+  
+  // Update banner text based on language
+  if (i18n && i18n.currentLanguage) {
+    const lang = i18n.currentLanguage;
+    if (lang === 'es') {
+      bannerText.textContent = 'Este sitio web utiliza Google Analytics para mejorar la experiencia del usuario.';
+      if (acceptButton) acceptButton.textContent = 'Aceptar';
+      if (declineButton) declineButton.textContent = 'Rechazar';
+    }
+  }
+  
+  // Show banner if no choice has been made
+  if (!analyticsChoice) {
+    setTimeout(() => {
+      analyticsBanner.classList.add('show');
+    }, 1000); // Show after 1 second
+  }
+  
+  // Handle accept button click
+  acceptButton.addEventListener('click', () => {
+    localStorage.setItem('analytics-choice', 'accepted');
+    enableAnalytics();
+    analyticsBanner.classList.remove('show');
+  });
+  
+  // Handle decline button click
+  declineButton.addEventListener('click', () => {
+    localStorage.setItem('analytics-choice', 'declined');
+    disableAnalytics();
+    analyticsBanner.classList.remove('show');
+  });
+  
+  // Handle close button click
+  closeButton.addEventListener('click', () => {
+    analyticsBanner.classList.remove('show');
+  });
+  
+  // Enable or disable analytics based on stored preference
+  if (analyticsChoice === 'accepted') {
+    enableAnalytics();
+  } else if (analyticsChoice === 'declined') {
+    disableAnalytics();
+  }
+  
+  // Function to enable Google Analytics
+  function enableAnalytics() {
+    // Only enable in production
+    if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+      window['ga-disable-G-5YP3MMRNWF'] = false;
+      gtag('config', 'G-5YP3MMRNWF');
+    }
+  }
+  
+  // Function to disable Google Analytics
+  function disableAnalytics() {
+    window['ga-disable-G-5YP3MMRNWF'] = true;
+  }
+});
