@@ -19,17 +19,25 @@
   },
   "projects": {
     "title": "Projects",
-    "project1": {
-      "title": "Project One",
-      "description": "Short description of the project goes here."
+    "portfolio": {
+      "title": "Personal Portfolio Website",
+      "description": "Built with Tailwind CSS and Vite; deployed on AWS S3 + Cloudflare with SEO optimization."
     },
-    "project2": {
-      "title": "Project Two",
-      "description": "Short description of the project goes here."
+    "pos": {
+      "title": "POS Web App",
+      "description": "Angular frontend and C# backend integrating payment gateways and inventory management."
     },
-    "project3": {
-      "title": "Project Three",
-      "description": "Short description of the project goes here."
+    "email": {
+      "title": "Cloud Email Service",
+      "description": "Developed automated notification system using AWS SES and Django backend."
+    },
+    "facade": {
+      "title": "Customer Engagement Web App",
+      "description": "Microservices architecture for customer interaction management with real-time analytics and multi-channel support."
+    },
+    "realtime": {
+      "title": "Real-Time Communication Platform",
+      "description": "Microservices architecture for customer interaction management with real-time analytics and multi-channel support."
     }
   },
   "skills": {

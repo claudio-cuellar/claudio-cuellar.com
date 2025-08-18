@@ -18,17 +18,25 @@
   },
   "projects": {
     "title": "Proyectos",
-    "project1": {
-      "title": "Proyecto Uno",
-      "description": "Breve descripción del proyecto aquí."
+    "portfolio": {
+      "title": "Sitio Web de Portafolio Personal",
+      "description": "Construido con Tailwind CSS y Vite; desplegado en AWS S3 + Cloudflare con optimización SEO."
     },
-    "project2": {
-      "title": "Proyecto Dos",
-      "description": "Breve descripción del proyecto aquí."
+    "pos": {
+      "title": "POS Web App",
+      "description": "Frontend en Angular y backend en C# integrando pasarelas de pago y gestión de inventario."
     },
-    "project3": {
-      "title": "Proyecto Tres",
-      "description": "Breve descripción del proyecto aquí."
+    "email": {
+      "title": "Servicio de Email en la Nube",
+      "description": "Sistema de notificaciones automatizado desarrollado usando AWS SES y backend Django."
+    },
+    "facade": {
+      "title": "Customer Engagement Web App",
+      "description": "Arquitectura de microservicios para gestión de interacciones con clientes con analíticas en tiempo real y soporte multicanal."
+    },
+    "realtime": {
+      "title": "Real-Time Communication Platform",
+      "description": "Microservices architecture for customer interaction management with real-time analytics and multi-channel support."
     }
   },
   "skills": {

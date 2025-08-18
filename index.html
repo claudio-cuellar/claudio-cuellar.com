@@ -185,26 +185,94 @@
   <!-- Projects -->
   <section id="projects" class="min-h-screen py-24 px-6">
     <h3 class="text-3xl font-bold text-yellow-400 mb-12 text-center fade-in" data-i18n="projects.title">Projects</h3>
-    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 max-w-7xl mx-auto">
+      <!-- Personal Portfolio Website -->
       <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition fade-in">
-        <img src="https://via.placeholder.com/400x250" alt="Project 1">
-        <div class="p-4">
-          <h4 class="font-bold text-xl" data-i18n="projects.project1.title">Project One</h4>
-          <p class="text-gray-400" data-i18n="projects.project1.description">Short description of the project goes here.</p>
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Portfolio Website" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h4 class="font-bold text-xl mb-2 text-yellow-400" data-i18n="projects.portfolio.title">Personal Portfolio Website</h4>
+          <p class="text-gray-400 text-sm mb-4" data-i18n="projects.portfolio.description">Built with Tailwind CSS and Vite; deployed on AWS S3 + Cloudflare with SEO optimization.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-2 py-1 bg-yellow-400 text-gray-900 text-xs rounded-full font-medium">Tailwind CSS</span>
+            <span class="px-2 py-1 bg-yellow-400 text-gray-900 text-xs rounded-full font-medium">Vite</span>
+            <span class="px-2 py-1 bg-yellow-400 text-gray-900 text-xs rounded-full font-medium">AWS S3</span>
+            <span class="px-2 py-1 bg-yellow-400 text-gray-900 text-xs rounded-full font-medium">Cloudflare</span>
+          </div>
+          <div class="flex gap-2">
+            <a href="#" class="text-yellow-400 hover:text-yellow-300 text-sm font-medium">Live Demo</a>
+            <a href="https://github.com/claudio252" class="text-gray-400 hover:text-white text-sm font-medium">GitHub</a>
+          </div>
         </div>
       </div>
+
+      <!-- POS Web System -->
       <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition fade-in">
-        <img src="https://via.placeholder.com/400x250" alt="Project 2">
-        <div class="p-4">
-          <h4 class="font-bold text-xl" data-i18n="projects.project2.title">Project Two</h4>
-          <p class="text-gray-400" data-i18n="projects.project2.description">Short description of the project goes here.</p>
+        <img src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="POS System" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h4 class="font-bold text-xl mb-2 text-yellow-400" data-i18n="projects.pos.title">POS Web System</h4>
+          <p class="text-gray-400 text-sm mb-4" data-i18n="projects.pos.description">Angular frontend and C# backend integrating payment gateways and inventory management.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-2 py-1 bg-yellow-400 text-gray-900 text-xs rounded-full font-medium">Angular</span>
+            <span class="px-2 py-1 bg-yellow-400 text-gray-900 text-xs rounded-full font-medium">C#</span>
+            <span class="px-2 py-1 bg-yellow-400 text-gray-900 text-xs rounded-full font-medium">.NET Core</span>
+            <span class="px-2 py-1 bg-yellow-400 text-gray-900 text-xs rounded-full font-medium">SQL Server</span>
+          </div>
+          <div class="flex gap-2">
+            <span class="text-gray-500 text-sm font-medium">Enterprise Project</span>
+          </div>
         </div>
       </div>
+
+      <!-- Cloud Email Service -->
       <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition fade-in">
-        <img src="https://via.placeholder.com/400x250" alt="Project 3">
-        <div class="p-4">
-          <h4 class="font-bold text-xl" data-i18n="projects.project3.title">Project Three</h4>
-          <p class="text-gray-400" data-i18n="projects.project3.description">Short description of the project goes here.</p>
+        <img src="https://images.unsplash.com/photo-1584543515885-b8981dbf0b5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Cloud Email Service" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h4 class="font-bold text-xl mb-2 text-yellow-400" data-i18n="projects.email.title">Cloud Email Service</h4>
+          <p class="text-gray-400 text-sm mb-4" data-i18n="projects.email.description">Developed automated notification system using AWS SES and Django backend.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-2 py-1 bg-yellow-400 text-gray-900 text-xs rounded-full font-medium">Django</span>
+            <span class="px-2 py-1 bg-yellow-400 text-gray-900 text-xs rounded-full font-medium">Python</span>
+            <span class="px-2 py-1 bg-yellow-400 text-gray-900 text-xs rounded-full font-medium">AWS SES</span>
+            <span class="px-2 py-1 bg-yellow-400 text-gray-900 text-xs rounded-full font-medium">AWS</span>
+          </div>
+          <div class="flex gap-2">
+            <span class="text-gray-500 text-sm font-medium">Enterprise Architecture</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Customer Engagement Facade -->
+      <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition fade-in">
+        <img src="https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Customer Engagement Facade" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h4 class="font-bold text-xl mb-2 text-yellow-400" data-i18n="projects.facade.title">Customer Engagement Facade</h4>
+          <p class="text-gray-400 text-sm mb-4" data-i18n="projects.facade.description">Microservices architecture with API gateway for customer interaction management and analytics.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-2 py-1 bg-yellow-400 text-gray-900 text-xs rounded-full font-medium">Microservices</span>
+            <span class="px-2 py-1 bg-yellow-400 text-gray-900 text-xs rounded-full font-medium">API Gateway</span>
+            <span class="px-2 py-1 bg-yellow-400 text-gray-900 text-xs rounded-full font-medium">Node.js</span>
+            <span class="px-2 py-1 bg-yellow-400 text-gray-900 text-xs rounded-full font-medium">Docker</span>
+          </div>
+          <div class="flex gap-2">
+            <span class="text-gray-500 text-sm font-medium">Enterprise Project</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Real-Time Communication Platform -->
+      <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition fade-in">
+        <img src="https://images.unsplash.com/photo-1611328573001-13cf452dd8a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Real-Time Communication Platform" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h4 class="font-bold text-xl mb-2 text-yellow-400" data-i18n="projects.realtime.title">Real-Time Communication Platform</h4>
+          <p class="text-gray-400 text-sm mb-4" data-i18n="projects.realtime.description">Built scalable real-time messaging and video communication platform with WebRTC and WebSocket technologies.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-2 py-1 bg-yellow-400 text-gray-900 text-xs rounded-full font-medium">Angular</span>
+            <span class="px-2 py-1 bg-yellow-400 text-gray-900 text-xs rounded-full font-medium">NodeJS</span>
+            <span class="px-2 py-1 bg-yellow-400 text-gray-900 text-xs rounded-full font-medium">Websockets</span>
+          </div>
+          <div class="flex gap-2">
+            <span class="text-gray-500 text-sm font-medium">Enterprise Project</span>
+          </div>
         </div>
       </div>
     </div>
@@ -534,30 +602,30 @@
 
   <!-- Footer -->
   <footer class="py-8 text-center text-gray-500 text-sm bg-gray-900">
-    <div class="max-w-4xl mx-auto px-6">
-      <!-- Privacy Notice -->
-      <div class="mb-4 p-4 bg-gray-800 rounded-lg border border-gray-700">
-        <h4 class="text-yellow-400 font-semibold mb-2" data-i18n="footer.privacy.title">Privacy Notice</h4>
-        <p class="text-gray-300 text-sm leading-relaxed" data-i18n="footer.privacy.description">
-          This website uses Google Analytics to analyze traffic and improve user experience. 
-          We collect anonymous data about your visit, including pages viewed and time spent on the site. 
-          No personal information is stored or shared with third parties.
-        </p>
-        <div class="mt-3 flex flex-wrap justify-center gap-4 text-xs">
-          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" 
-             class="text-yellow-400 hover:text-yellow-300 transition" data-i18n="footer.privacy.googlePolicy">
-              Google Privacy Policy
-          </a>
-          <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" 
-             class="text-yellow-400 hover:text-yellow-300 transition" data-i18n="footer.privacy.optOut">
-              Opt-out of Analytics
-          </a>
-        </div>
+      <div class="max-w-4xl mx-auto px-6">
+          <!-- Privacy Notice -->
+          <div class="mb-4 p-4 bg-gray-800 rounded-lg border border-gray-700">
+              <h4 class="text-yellow-400 font-semibold mb-2" data-i18n="footer.privacy.title">Privacy Notice</h4>
+              <p class="text-gray-300 text-sm leading-relaxed" data-i18n="footer.privacy.description">
+                  This website uses Google Analytics to analyze traffic and improve user experience. 
+                  We collect anonymous data about your visit, including pages viewed and time spent on the site. 
+                  No personal information is stored or shared with third parties.
+              </p>
+              <div class="mt-3 flex flex-wrap justify-center gap-4 text-xs">
+                  <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" 
+                     class="text-yellow-400 hover:text-yellow-300 transition" data-i18n="footer.privacy.googlePolicy">
+                      Google Privacy Policy
+                  </a>
+                  <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" 
+                     class="text-yellow-400 hover:text-yellow-300 transition" data-i18n="footer.privacy.optOut">
+                      Opt-out of Analytics
+                  </a>
+              </div>
+          </div>
+          
+          <!-- Copyright -->
+          <p data-i18n="footer.copyright">© 2025 Claudio Cuellar. All rights reserved.</p>
       </div>
-      
-      <!-- Copyright -->
-      <p data-i18n="footer.copyright">© 2025 Claudio Cuellar. All rights reserved.</p>
-    </div>
   </footer>
 
   <!-- Scripts -->
